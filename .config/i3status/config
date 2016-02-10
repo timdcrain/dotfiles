@@ -1,0 +1,31 @@
+general {
+    colors = false
+    interval = 5
+}
+
+order += "cpu_usage"
+order += "battery 0"
+order += "volume master"
+order += "tztime local"
+
+cpu_usage {
+    format = " %usage"
+}
+
+battery 0 {
+    format = " %percentage  %remaining"
+    hide_seconds = true
+    integer_battery_capacity = true
+}
+
+tztime local {
+    format = "  %a %_d %b %Y - %H:%M%p"
+}
+
+volume master {
+    format = "  %volume"
+    format_muted = "   %volume"
+    device = "default"
+    mixer = "Master"
+    mixer_idx = 0
+}
