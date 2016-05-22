@@ -4,6 +4,8 @@ set shiftwidth=4
 set smarttab
 set expandtab
 
+set number
+
 set background=dark
 
 syntax on
