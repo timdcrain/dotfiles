@@ -9,3 +9,4 @@ set number
 set background=dark
 
 syntax on
+filetype plugin indent on
