@@ -8,9 +8,11 @@ call vundle#begin()
 " Let Vundle manage Vundle, required.
 Plugin 'VundleVim/Vundle.vim'
 
+" Base16 color scheme for vim.
+Plugin 'chriskempson/base16-vim'
+
 " End of Vundle configuration section.
 call vundle#end()
-filetype plugin indent on " Required by Vundle.
 
 set tabstop=4
 set softtabstop=0
@@ -21,5 +23,8 @@ set expandtab
 set number
 
 set background=dark
+colorscheme base16-tomorrow
 
 syntax on
+filetype plugin indent on " Required by Vundle.
+
