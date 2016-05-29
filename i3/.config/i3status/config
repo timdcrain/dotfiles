@@ -1,26 +1,15 @@
 general {
-    colors = false
+    colors = true
+    color_bad = "#cc6666"
+    color_degraded = "#f0c674"
+    color_good = "#b5bd68"
     interval = 5
 }
 
-order += "cpu_usage"
-order += "battery 0"
 order += "volume master"
-order += "tztime local"
-
-cpu_usage {
-    format = " %usage"
-}
-
-battery 0 {
-    format = " %percentage  %remaining"
-    hide_seconds = true
-    integer_battery_capacity = true
-}
-
-tztime local {
-    format = "  %a %_d %b %Y - %H:%M%p"
-}
+order += "wireless wlp58s0"
+order += "battery 0"
+order += "time"
 
 volume master {
     format = "  %volume"
@@ -29,3 +18,24 @@ volume master {
     mixer = "Master"
     mixer_idx = 0
 }
+
+wireless wlp58s0 {
+    format_up = "  %essid"
+    format_down = "  down"
+}
+
+battery 0 {
+    format = "%status  %percentage (%remaining)"
+    status_chr = ""
+    status_bat = ""
+    status_full = ""
+    low_threshold = 15
+    threshold_type = "percentage"
+    integer_battery_capacity = true
+    hide_seconds = true
+}
+
+time {
+    format = " %Y.%m.%d %H:%M:%S"
+}
+
