@@ -11,7 +11,6 @@ not all required, however some configs rely on other programs being present
 * git
 * gtk
 * i3-wm
-* ranger
 * rofi
 * vim
 
