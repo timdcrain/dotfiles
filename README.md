@@ -34,7 +34,8 @@ vim:
 
 gtk:
 
-* Numix theme
+* Centauri theme
+* Super Flat Remix icon theme
 
 Installation
 ------------
