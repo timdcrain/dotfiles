@@ -14,8 +14,6 @@ Xft.rgba:       true
 URxvt*font:         xft:Terminus:syle=Regular:size=28
 URxvt*boldFont:     xft:Terminus:style=Bold:size=28
 URxvt*scrollBar:    false
-URxvt*transparent:  true
-URxvt*shading:      20
 
 
 ! Base16 Tomorrow
