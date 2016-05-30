@@ -36,6 +36,6 @@ battery 0 {
 }
 
 time {
-    format = " %Y.%m.%d %H:%M:%S"
+    format = " %Y.%m.%d %H:%M"
 }
 
