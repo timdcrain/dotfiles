@@ -1,0 +1,38 @@
+# base16-tomorrow scheme
+
+set font                        "Terminus 28"
+set default-bg                  "#1d1f21" #00
+set default-fg                  "#282a2e" #01
+
+set statusbar-bg                "#282a2e" #01
+set statusbar-fg                "#b4b7b4" #04
+
+set inputbar-bg                 "#1d1f21" #00 currently not used
+set inputbar-fg                 "#373b41" #02
+
+set notification-error-bg       "#cc6666" #08
+set notification-error-fg       "#1d1f21" #00
+
+set notification-warning-bg     "#cc6666" #08
+set notification-warning-fg     "#1d1f21" #00
+
+set highlight-color             "#f0c674" #0A
+set highlight-active-color      "#81a2be" #0D
+
+set completion-highlight-bg     "#8abeb7" #0C
+set completion-highlight-fg     "#373b41" #02
+
+set completion-bg               "#373b41" #02
+set completion-fg               "#8abeb7" #0C
+
+set notification-bg             "#b5bd68" #0B
+set notification-fg             "#1d1f21" #00
+
+set recolor-lightcolor          "#1d1f21" #00
+set recolor-darkcolor           "#e0e0e0" #06
+set recolor                     "true"
+
+# setting recolor-keep true will keep any color your pdf has.
+# if it is false, it'll just be black and white
+set recolor-keephue             "true"
+

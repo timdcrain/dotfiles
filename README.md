@@ -14,6 +14,7 @@ not all required, however some configs rely on other programs being present
 * ranger
 * rofi
 * vim
+* zathura
 
 Dependencies
 ------------
