@@ -7,8 +7,8 @@ set default-fg                  "#282a2e" #01
 set statusbar-bg                "#282a2e" #01
 set statusbar-fg                "#b4b7b4" #04
 
-set inputbar-bg                 "#1d1f21" #00 currently not used
-set inputbar-fg                 "#373b41" #02
+set inputbar-bg                 "#1d1f21" #00
+set inputbar-fg                 "#e0e0e0" #06
 
 set notification-error-bg       "#cc6666" #08
 set notification-error-fg       "#1d1f21" #00
