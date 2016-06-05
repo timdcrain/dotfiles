@@ -1,0 +1,3 @@
+# Ignore Vim's .swp files
+*.swp
+
