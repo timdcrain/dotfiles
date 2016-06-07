@@ -11,6 +11,9 @@ Plugin 'VundleVim/Vundle.vim'
 " Base16 color scheme for vim.
 Plugin 'chriskempson/base16-vim'
 
+" Rust official syntax plugin.
+Plugin 'rust-lang/rust.vim'
+
 " End of Vundle configuration section.
 call vundle#end()
 
