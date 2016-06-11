@@ -1,5 +1,6 @@
-set nocompatible " Required by Vundle.
-filetype off " Required by Vundle.
+" Required setup for Vundle.
+set nocompatible
+filetype off
 
 " Set the runtime path to include Vundle and initialize.
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -14,20 +15,32 @@ Plugin 'chriskempson/base16-vim'
 " Rust official syntax plugin.
 Plugin 'rust-lang/rust.vim'
 
-" End of Vundle configuration section.
 call vundle#end()
 
+" Expand tabs to four spaces.
 set tabstop=4
 set softtabstop=0
 set shiftwidth=4
 set smarttab
 set expandtab
 
-set number
-
+" Color scheme.
 set background=dark
 colorscheme base16-tomorrow
 
+" Filetype-specific features.
 syntax on
-filetype plugin indent on " Required by Vundle.
+filetype plugin indent on
 
+" General settings.
+set number
+
+" Disable arrow keys.
+nnoremap <up> <nop>
+nnoremap <down> <nop>
+nnoremap <left> <nop>
+nnoremap <right> <nop>
+inoremap <up> <nop>
+inoremap <down> <nop>
+inoremap <left> <nop>
+inoremap <right> <nop>
