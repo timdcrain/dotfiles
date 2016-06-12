@@ -12,4 +12,3 @@ rofi.hide-scrollbar:                 true
 
 ! Font to use
 rofi.font:                           mono 24
-

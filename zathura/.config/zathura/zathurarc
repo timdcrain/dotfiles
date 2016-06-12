@@ -38,4 +38,3 @@ set recolor-keephue             "true"
 
 # Press 't' to toggle between light and dark modes.
 map t recolor
-

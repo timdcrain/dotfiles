@@ -193,4 +193,3 @@ new_window none
 # specify which windows should be floating
 for_window[class="Wicd-client.py"] floating enable
 for_window[class="Keepassx2"] floating enable
-
