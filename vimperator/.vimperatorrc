@@ -1,0 +1,2 @@
+" Disable navigation and bookmark bars.
+set gui=nonavigation,nobookmarks
