@@ -44,4 +44,3 @@ Installation
 
 For easy installation, install GNU Stow and run `stow <package>`. The folder
 structure under <package> will be transferred unchanged to the home directory.
-
