@@ -17,20 +17,23 @@ Plugin 'rust-lang/rust.vim'
 
 call vundle#end()
 
+" Filetype-specific features.
+syntax on
+filetype plugin indent on
+
+" Color scheme. This must come after the syntax and
+" filetype lines so that the hi commands work.
+set background=dark
+colorscheme base16-tomorrow
+hi LineNr ctermbg=00
+hi SpecialKey ctermfg=11
+
 " Expand tabs to four spaces.
 set tabstop=4
 set softtabstop=0
 set shiftwidth=4
 set smarttab
 set expandtab
-
-" Color scheme.
-set background=dark
-colorscheme base16-tomorrow
-
-" Filetype-specific features.
-syntax on
-filetype plugin indent on
 
 " Show special characters for whitespace.
 set listchars=tab:→\ ,trail:·
