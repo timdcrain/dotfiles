@@ -32,6 +32,10 @@ colorscheme base16-tomorrow
 syntax on
 filetype plugin indent on
 
+" Show special characters for whitespace.
+set listchars=tab:→\ ,trail:·
+set list
+
 " General settings.
 set number
 set backspace=start,eol,indent
