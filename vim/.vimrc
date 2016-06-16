@@ -35,6 +35,7 @@ filetype plugin indent on
 " General settings.
 set number
 set backspace=start,eol,indent
+set encoding=utf-8
 
 " Disable arrow keys.
 nnoremap <up> <nop>
