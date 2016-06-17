@@ -26,6 +26,7 @@ filetype plugin indent on
 set background=dark
 colorscheme base16-tomorrow
 hi LineNr ctermbg=00
+hi SignColumn ctermbg=00
 hi SpecialKey ctermfg=11
 
 " Expand tabs to four spaces.
