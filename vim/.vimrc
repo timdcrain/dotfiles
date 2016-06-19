@@ -44,6 +44,7 @@ set list
 set number
 set backspace=start,eol,indent
 set encoding=utf-8
+set spell
 
 " Disable arrow keys.
 nnoremap <up> <nop>
