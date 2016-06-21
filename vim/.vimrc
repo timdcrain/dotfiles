@@ -37,7 +37,7 @@ set smarttab
 set expandtab
 
 " Show special characters for whitespace.
-set listchars=tab:→\ ,trail:·
+set listchars=tab:—\—,trail:·
 set list
 
 " General settings.
