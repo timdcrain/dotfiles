@@ -15,6 +15,15 @@ Plugin 'chriskempson/base16-vim'
 " Rust official syntax plugin.
 Plugin 'rust-lang/rust.vim'
 
+" Airline status bar plugin.
+Plugin 'vim-airline/vim-airline'
+
+" File browser plugin.
+Plugin 'scrooloose/nerdtree'
+
+" Syntax checker plugin.
+Plugin 'scrooloose/syntastic'
+
 call vundle#end()
 
 " Filetype-specific features.
@@ -40,10 +49,20 @@ set expandtab
 set listchars=tab:—\—,trail:·
 set list
 
+" Syntastic settings.
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
 " General settings.
-set number
 set backspace=start,eol,indent
 set encoding=utf-8
+set laststatus=2
+set number
 set spell
 
 " Disable arrow keys.
