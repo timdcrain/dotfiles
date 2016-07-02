@@ -11,6 +11,7 @@ not all required, however some configs rely on other programs being present
 * firefox
 * git
 * gtk
+* hangups
 * i3-wm
 * ranger
 * rofi
