@@ -1,2 +1,4 @@
-" Disable navigation and bookmark bars.
+" Disable bookmark bar.
 set gui=nobookmarks
+" Try to focus on content when opening a page.
+set focuscontent
