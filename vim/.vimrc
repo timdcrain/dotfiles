@@ -6,23 +6,13 @@ filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
-" Let Vundle manage Vundle, required.
 Plugin 'VundleVim/Vundle.vim'
-
-" Base16 color scheme for vim.
 Plugin 'chriskempson/base16-vim'
-
-" Rust official syntax plugin.
 Plugin 'rust-lang/rust.vim'
-
-" Airline status bar plugin.
 Plugin 'vim-airline/vim-airline'
-
-" File browser plugin.
 Plugin 'scrooloose/nerdtree'
-
-" Syntax checker plugin.
 Plugin 'scrooloose/syntastic'
+Plugin 'tpope/vim-surround'
 
 call vundle#end()
 
