@@ -14,6 +14,7 @@ not all required, however some configs rely on other programs being present
 * i3-wm
 * ranger
 * rofi
+* tmux
 * vim
 * vimperator (firefox)
 * zathura
