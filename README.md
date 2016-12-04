@@ -36,11 +36,6 @@ vim:
 
 * Vundle
 
-gtk:
-
-* Centauri theme
-* Super Flat Remix icon theme
-
 Installation
 ------------
 
