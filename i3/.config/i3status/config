@@ -21,7 +21,7 @@ volume master {
 
 wireless wlp58s0 {
     format_up = "  %essid"
-    format_down = "  down"
+    format_down = ""
 }
 
 battery 0 {
