@@ -2,3 +2,5 @@
 set gui=nobookmarks
 " Try to focus on content when opening a page.
 set focuscontent
+" Only auto suggest history and bookmarks.
+set complete=l
