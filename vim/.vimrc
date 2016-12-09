@@ -13,6 +13,7 @@ Plugin 'vim-airline/vim-airline'
 Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/syntastic'
 Plugin 'tpope/vim-surround'
+Plugin 'airblade/vim-gitgutter'
 
 call vundle#end()
 
@@ -47,6 +48,12 @@ set statusline+=%*
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+
+" Git gutter settings.
+hi GitGutterAdd ctermbg=00
+hi GitGutterChange ctermbg=00
+hi GitGutterDelete ctermbg=00
+hi GitGutterChangeDelete ctermbg=00
 
 " General settings.
 set backspace=start,eol,indent
