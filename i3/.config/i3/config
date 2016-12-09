@@ -62,9 +62,6 @@ bindsym $mod+a focus parent
 # focus the child container
 bindsym $mod+d focus child
 
-# toggle touchpad on / off
-bindsym $mod+m exec synclient TouchpadOff=$(synclient -l | grep -c 'Touchpad.*=.*0')
-
 # lock the computer
 bindsym $mod+Ctrl+l exec dm-tool lock && sleep 1
 
