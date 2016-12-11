@@ -7,8 +7,7 @@ rofi.color-normal: #393939, #ffffff, #393939, #268bd2, #ffffff
 rofi.color-active: #393939, #268bd2, #393939, #268bd2, #205171
 rofi.color-urgent: #393939, #f3843d, #393939, #268bd2, #ffc39c
 
-! Hide scroll-bar
-rofi.hide-scrollbar:                 true
-
-! Font to use
-rofi.font:                           mono 24
+rofi.font: Roboto 35
+rofi.hide-scrollbar: true
+rofi.lines: 5
+rofi.separator-style: none
