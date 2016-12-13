@@ -18,6 +18,7 @@ not all required, however some configs rely on other programs being present
 * vim
 * vimperator (firefox)
 * zathura
+* zsh
 
 Dependencies
 ------------
