@@ -32,7 +32,7 @@ hi SignColumn ctermbg=00
 hi SpecialKey ctermfg=11
 
 " Visual cue when line length is > 80 characters.
-autocmd BufEnter * highlight OverLength ctermbg=red ctermfg=white
+autocmd BufEnter * highlight OverLength ctermbg=red ctermfg=00
 autocmd BufEnter * match OverLength /\%>80v.\+/
 
 " Expand tabs to four spaces.
