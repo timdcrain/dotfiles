@@ -191,3 +191,6 @@ new_window none
 # specify which windows should be floating
 for_window[class="Wicd-client.py"] floating enable
 for_window[class="Keepassx2"] floating enable
+
+# Assign Firefox windows to workspace 2
+assign [class="Firefox"] → $WS2
