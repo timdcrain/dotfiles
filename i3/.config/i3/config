@@ -194,3 +194,6 @@ for_window[class="Keepassx2"] floating enable
 
 # Assign Firefox windows to workspace 2
 assign [class="Firefox"] → $WS2
+
+# Autostart programs
+exec --no-startup-id dropbox-cli start
