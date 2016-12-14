@@ -11,7 +11,7 @@ Xft.rgba:       true
 
 ! URxvt Configuration
 
-URxvt*font:         xft:Terminus:syle=Regular:size=28
+URxvt*font:         xft:Terminus:style=Regular:size=28
 URxvt*boldFont:     xft:Terminus:style=Bold:size=28
 URxvt*scrollBar:    false
 
