@@ -29,6 +29,7 @@ need to install yourself:
 i3-wm:
 
 * amixer
+* dropbox-cli
 * i3status
 * rofi
 * ttf-font-awesome
