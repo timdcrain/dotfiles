@@ -166,7 +166,7 @@ set $base0F #a3685a
 # finds out, if available)
 bar {
         status_command i3status
-        tray_output primary
+        tray_output none
         position top
         separator_symbol "  "
         strip_workspace_numbers yes
