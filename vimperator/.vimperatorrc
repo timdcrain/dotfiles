@@ -4,3 +4,5 @@ set gui=nobookmarks
 set focuscontent
 " Only auto suggest history and bookmarks.
 set complete=l
+" Use terminal vim as external editor.
+set editor="urxvt -e vim"
