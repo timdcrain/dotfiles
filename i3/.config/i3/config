@@ -170,7 +170,7 @@ bar {
         position top
         separator_symbol "  "
         strip_workspace_numbers yes
-        font pango: Roboto, Awesome 20
+        font pango: Roboto, Awesome 18
 
     colors {
         background $base00
