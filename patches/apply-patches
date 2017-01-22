@@ -5,6 +5,9 @@
 # file with junk.
 #
 # This seems to be working just fine, but could result in errors.
+#
+# Update 2017.01.21: This definitely doesn't work anymore,
+# since lightdm will turn /dev/null into a regular file.
 patch_lightdm() {
     local lightdm
     lightdm="$(which lightdm 2> /dev/null)"
@@ -49,7 +52,6 @@ main() {
         exit 1
     fi
 
-    patch_lightdm "${patchDir}"
     patch_stow "${patchDir}"
 
     exit 0
