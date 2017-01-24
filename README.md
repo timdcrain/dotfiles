@@ -15,6 +15,7 @@ not all required, however some configs rely on other programs being present
 * i3-wm
 * ranger
 * rofi
+* ssh
 * tmux
 * vim
 * vimperator (firefox)
