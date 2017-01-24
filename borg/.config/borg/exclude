@@ -1,0 +1,17 @@
+# Exclude the following directories.
+/home/*/.bundle
+/home/*/.cache
+/home/*/.cargo
+/home/*/.dropbox
+/home/*/.dropbox-dist
+/home/*/.emacs.d
+/home/*/.gem
+/home/*/.opam
+/home/*/.vim
+/home/*/.vimperator
+/home/*/Downloads
+/home/*/.git
+
+# Filetypes to exclude.
+*.swp
+*.pyc

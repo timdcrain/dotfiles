@@ -8,6 +8,7 @@ This repository contains configuration for the following programs. They are
 not all required, however some configs rely on other programs being present
 (for instance, i3 has key bindings for rofi).
 
+* borg
 * git
 * gtk
 * hangups
