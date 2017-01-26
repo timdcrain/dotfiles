@@ -1,0 +1,80 @@
+#!/bin/bash
+
+# Script constants.
+readonly CONNECTION_TIMEOUT=300
+
+# Borg constants.
+readonly BORG_EXCLUDE=~/.config/borg/exclude
+readonly BORG_ARCHIVE_PREFIX="{hostname}-"
+readonly BORG_ARCHIVE="${BORG_ARCHIVE_PREFIX}{now:%Y-%m-%d}"
+readonly BORG_COMPRESSION="lz4"
+
+# Environment variables that borg uses.
+export BORG_REMOTE_PATH="borg1"
+
+check_connectivity() {
+    local timeout="$1"
+    local server="$2"
+
+    while ! ping -q -c 1 -W 1 "${server}" > /dev/null 2>&1 ; do
+        timeout=$(( timeout - 5 ))
+        if (( timeout <= 0 )); then
+            echo "Exiting. Could not connect to ${server}." >&2
+            exit 5
+        fi
+
+        sleep 5
+    done
+
+    return 0
+}
+
+# Backup all of home except a few excluded directories.
+create_backup() {
+    borg create -v --stats \
+        --compression "${BORG_COMPRESSION}" \
+        --exclude-from "${BORG_EXCLUDE}" \
+        "::${BORG_ARCHIVE}" \
+        ~
+
+    return "$?"
+}
+
+prune_backups() {
+    borg prune -v --list \
+        --prefix "${BORG_ARCHIVE_PREFIX}" \
+        --keep-daily=180 --keep-weekly=52 --keep-monthly=48
+
+    return "$?"
+}
+
+main() {
+    if [[ -z "${BORG_REPO}" ]]; then
+        read -s -p "Enter repo: " repo
+        export BORG_REPO="${repo}"
+        echo
+    fi
+
+    # Parse out the server portion of the repo: The repo will have the form
+    # username@server:folder, so split on @ and : and take the middle.
+    IFS='@:' read -ra pieces <<< "${BORG_REPO}"
+    local server="${pieces[1]}"
+
+    # Make sure that we can connect to the server first. This will wait
+    # until we either can connect or we timeout. Useful if this script
+    # is starting on boot.
+    check_connectivity "${CONNECTION_TIMEOUT}" "${server}"
+
+    # Set passphrase environment variable so we don't have to enter it twice.
+    if [[ -z "${BORG_PASSPHRASE}" ]]; then
+        read -s -p "Enter passphrase for key ${BORG_REPO}: " password
+        export BORG_PASSPHRASE="${password}"
+        echo
+    fi
+
+    create_backup && prune_backups || exit "$?"
+
+    exit 0
+}
+
+main "$@"

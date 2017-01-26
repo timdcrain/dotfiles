@@ -1,0 +1,9 @@
+[Unit]
+Description=Run borg backup
+
+[Service]
+Type=simple
+Nice=19
+IOSchedulingClass=2
+IOSchedulingPriority=7
+ExecStart=/home/tim/bin/backup

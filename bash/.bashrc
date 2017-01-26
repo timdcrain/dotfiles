@@ -5,6 +5,9 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
+# Add ~/bin to path.
+export PATH="$HOME/bin:$PATH"
+
 # Environment Variables
 export EDITOR=vim
 export LS_COLORS='di=34:ex=32'
