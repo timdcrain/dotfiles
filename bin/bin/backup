@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Script constants.
-readonly CONNECTION_TIMEOUT=300
+readonly CONNECTION_TIMEOUT=180
 
 # Borg constants.
 readonly BORG_EXCLUDE=~/.config/borg/exclude
@@ -48,33 +48,41 @@ prune_backups() {
     return "$?"
 }
 
-main() {
+prompt_repo() {
     if [[ -z "${BORG_REPO}" ]]; then
-        read -s -p "Enter repo: " repo
+        read -p "Enter repo: " repo
         export BORG_REPO="${repo}"
         echo
     fi
+}
 
-    # Parse out the server portion of the repo: The repo will have the form
-    # username@server:folder, so split on @ and : and take the middle.
-    IFS='@:' read -ra pieces <<< "${BORG_REPO}"
-    local server="${pieces[1]}"
-
-    # Make sure that we can connect to the server first. This will wait
-    # until we either can connect or we timeout. Useful if this script
-    # is starting on boot.
-    check_connectivity "${CONNECTION_TIMEOUT}" "${server}"
-
+prompt_passphrase() {
     # Set passphrase environment variable so we don't have to enter it twice.
     if [[ -z "${BORG_PASSPHRASE}" ]]; then
         read -s -p "Enter passphrase for key ${BORG_REPO}: " password
         export BORG_PASSPHRASE="${password}"
         echo
     fi
+}
 
-    create_backup && prune_backups || exit "$?"
+parse_server() {
+    # Parse out the server portion of the repo: The repo will have the form
+    # username@server:folder, so split on @ and : and take the middle.
+    IFS='@:' read -ra pieces <<< "${BORG_REPO}"
+    echo "${pieces[1]}"
+}
 
-    exit 0
+main() {
+    prompt_repo
+    prompt_passphrase
+
+    # Make sure that we can connect to the server first. This will wait
+    # until we either can connect or we timeout. Useful if this script
+    # is starting on boot.
+    check_connectivity "${CONNECTION_TIMEOUT}" "$(parse_server)"
+
+    create_backup && prune_backups
+    exit "$?"
 }
 
 main "$@"
