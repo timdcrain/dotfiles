@@ -2,6 +2,7 @@
 
 # Script constants.
 readonly CONNECTION_TIMEOUT=180
+readonly PRUNE_BACKUPS=1
 
 # Borg constants.
 readonly BORG_EXCLUDE=~/.config/borg/exclude
@@ -81,7 +82,11 @@ main() {
     # is starting on boot.
     check_connectivity "${CONNECTION_TIMEOUT}" "$(parse_server)"
 
-    create_backup && prune_backups
+    if [[ "${PRUNE_BACKUPS}" -ne 1 ]]; then
+        prune_backups || exit "$?"
+    fi
+
+    create_backup
     exit "$?"
 }
 
