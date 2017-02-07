@@ -11,11 +11,11 @@ Plugin 'airblade/vim-gitgutter'
 Plugin 'chriskempson/base16-vim'
 Plugin 'rust-lang/rust.vim'
 Plugin 'scrooloose/nerdtree'
-Plugin 'scrooloose/syntastic'
 Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-surround'
 Plugin 'vim-airline/vim-airline'
+Plugin 'w0rp/ale'
 
 call vundle#end()
 
@@ -42,14 +42,11 @@ set expandtab
 set listchars=tab:—\—,trail:·
 set list
 
-" Syntastic settings.
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
+" ALE settings.
+let g:ale_sign_error = '×'
+let g:ale_sign_warning = '⚠'
+hi ALEErrorSign ctermbg=00 ctermfg=01
+hi ALEWarningSign ctermbg=00 ctermfg=03
 
 " Git gutter settings.
 hi GitGutterAdd ctermbg=00
