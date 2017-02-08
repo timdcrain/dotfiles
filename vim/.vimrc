@@ -9,6 +9,8 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'chriskempson/base16-vim'
+Plugin 'davidhalter/jedi-vim'
+Plugin 'ervandew/supertab'
 Plugin 'rust-lang/rust.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'tpope/vim-commentary'
@@ -59,6 +61,12 @@ hi GitGutterAdd ctermbg=00
 hi GitGutterChange ctermbg=00
 hi GitGutterDelete ctermbg=00
 hi GitGutterChangeDelete ctermbg=00
+
+" Jedi settings.
+autocmd FileType python setlocal completeopt-=preview
+
+" Supertab settings.
+let g:SuperTabDefaultCompletionType = "<C-N>"
 
 " General settings.
 set backspace=start,eol,indent
