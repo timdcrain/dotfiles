@@ -12,6 +12,7 @@ Plugin 'chriskempson/base16-vim'
 Plugin 'rust-lang/rust.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'tpope/vim-commentary'
+Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-surround'
 Plugin 'vim-airline/vim-airline'
@@ -41,6 +42,11 @@ set expandtab
 " Show special characters for whitespace.
 set listchars=tab:—\—,trail:·
 set list
+
+" Airline settings.
+let g:airline_detect_spell = 0
+let g:airline_left_sep = '▶'
+let g:airline_right_sep = '◀'
 
 " ALE settings.
 let g:ale_sign_error = '×'
