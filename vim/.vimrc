@@ -73,6 +73,7 @@ hi GitGutterChangeDelete ctermbg=00
 
 " Jedi settings.
 autocmd FileType python setlocal completeopt-=preview
+let g:jedi#show_call_signatures = 0
 
 " Supertab settings.
 let g:SuperTabDefaultCompletionType = "<C-N>"
