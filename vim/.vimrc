@@ -80,6 +80,7 @@ let g:SuperTabDefaultCompletionType = "<C-N>"
 
 " General settings.
 set backspace=start,eol,indent
+set directory=~/tmp,/var/tmp,/tmp
 set encoding=utf-8
 set laststatus=2
 set number
