@@ -54,8 +54,16 @@ let g:airline_right_sep = '◀'
 " ALE settings.
 let g:ale_sign_error = '×'
 let g:ale_sign_warning = '⚠'
+let g:ale_set_highlights = 0
 hi ALEErrorSign ctermbg=00 ctermfg=01
 hi ALEWarningSign ctermbg=00 ctermfg=03
+
+" Don't lint while typing until we exit insert mode.
+let g:ale_lint_on_text_changed = 'normal'
+augroup ALERunOnInsertLeaveGroup
+    autocmd!
+    autocmd InsertLeave * call ale#Queue(0, 'lint_file')
+augroup END
 
 " Git gutter settings.
 hi GitGutterAdd ctermbg=00
