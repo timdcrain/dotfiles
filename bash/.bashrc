@@ -22,5 +22,11 @@ export LESS_TERMCAP_so=$'\E[01;44;33m'
 export LESS_TERMCAP_ue=$'\E[0m'
 export LESS_TERMCAP_us=$'\E[03;32m'
 
+# Vim as a pager / cat
+if hash vimcat 2>/dev/null; then
+    alias oldcat=$(command -v cat)
+    alias cat='vimcat'
+fi
+
 alias ls='ls -la --color=auto'
 PS1='[\u@\h \W]\$ '
