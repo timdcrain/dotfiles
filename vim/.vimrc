@@ -12,6 +12,7 @@ Plugin 'chriskempson/base16-vim'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'davidhalter/jedi-vim'
 Plugin 'ervandew/supertab'
+Plugin 'majutsushi/tagbar'
 Plugin 'rust-lang/rust.vim'
 Plugin 'timdcrain/vim-captains-log'
 Plugin 'tpope/vim-commentary'
@@ -77,6 +78,9 @@ let g:jedi#show_call_signatures = 0
 
 " Supertab settings.
 let g:SuperTabDefaultCompletionType = "<C-N>"
+
+" Tagbar settings.
+nnoremap <F8> :TagbarToggle<CR>
 
 " General settings.
 set backspace=start,eol,indent
