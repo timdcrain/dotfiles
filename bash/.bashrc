@@ -22,6 +22,9 @@ export LESS_TERMCAP_so=$'\E[01;44;33m'
 export LESS_TERMCAP_ue=$'\E[0m'
 export LESS_TERMCAP_us=$'\E[03;32m'
 
+# Turn off Ctrl-S and Ctrl-Q
+stty -ixon -ixoff
+
 # Vim as a pager / cat
 if hash vimcat 2>/dev/null; then
     alias oldcat=$(command -v cat)
