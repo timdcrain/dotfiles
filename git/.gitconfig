@@ -3,3 +3,7 @@
 [user]
 	name = Timothy Crain
 	email = timdcrain@gmail.com
+[init]
+	templatedir = ~/.config/git/template
+[alias]
+	ctags = !.git/hooks/ctags
