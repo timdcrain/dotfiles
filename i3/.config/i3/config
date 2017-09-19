@@ -112,9 +112,10 @@ bindsym $mod+Shift+r restart
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
 # Media keys
-bindsym XF86AudioRaiseVolume exec amixer -q set Master 2%+ unmute
-bindsym XF86AudioLowerVolume exec amixer -q set Master 2%- unmute
-bindsym XF86AudioMute exec amixer -q set Master toggle
+
+bindsym XF86AudioRaiseVolume exec "pactl set-sink-mute 0 false ; pactl set-sink-volume 0 +2%"
+bindsym XF86AudioLowerVolume exec "pactl set-sink-mute 0 false ; pactl set-sink-volume 0 -2%"
+bindsym XF86AudioMute exec pactl set-sink-mute 0 toggle
 bindsym XF86AudioPlay exec playerctl play-pause
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
