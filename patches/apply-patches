@@ -1,42 +1,17 @@
 #!/bin/bash
 
-# Replaces ".xsession-errors" string with "/dev/null\0errors"
-# This prevents lightdm from filling up the .xsession-errors
-# file with junk.
-#
-# This seems to be working just fine, but could result in errors.
-#
-# Update 2017.01.21: This definitely doesn't work anymore,
-# since lightdm will turn /dev/null into a regular file.
-patch_lightdm() {
-    local lightdm
-    lightdm="$(which lightdm 2> /dev/null)"
+apply_patch() {
+    local patchFile="$1"
+    local target="$2"
+
+    local targetPath
+    targetPath="$(which ${target} 2>/dev/null)"
 
     if [[ "$?" -eq 0 ]]; then
-        echo "Found lightdm at ${lightdm}... Applying patch."
-        sed -e "s@.xsession-errors@/dev/null\x00errors@" -i.orig "${lightdm}"
+        echo "Found ${target} at ${targetPath}... Applying patch."
+        patch -b "${targetPath}" "${patchFile}"
     else
-        echo "Could not find lightdm... Not applying patch."
-        return 1
-    fi
-
-    return 0
-}
-
-# Adds the ability for stow to glob the target path.
-# This lets us use ~, instead of hardcoding the
-# user's directory.
-patch_stow() {
-    local patchDir="$1"
-
-    local stow
-    stow="$(which stow 2> /dev/null)"
-
-    if [[ "$?" -eq 0 ]]; then
-        echo "Found stow at ${stow}... Applying patch."
-        patch -b "${stow}" "${patchDir}/stow.patch"
-    else
-        echo "Could not find stow... Not applying patch."
+        echo "Could not find ${target}... Not applying patch."
         return 1
     fi
 
@@ -52,7 +27,11 @@ main() {
         exit 1
     fi
 
-    patch_stow "${patchDir}"
+    local patchFileName
+    for patchFile in ${patchDir}/*.patch; do
+        patchFileName="$(basename "${patchFile}")"
+        apply_patch "${patchFile}" "${patchFileName%.*}"
+    done
 
     exit 0
 }
