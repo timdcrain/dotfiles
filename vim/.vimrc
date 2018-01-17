@@ -88,9 +88,13 @@ nnoremap <F8> :TagbarToggle<CR>
 set backspace=start,eol,indent
 set directory=~/tmp,/var/tmp,/tmp
 set encoding=utf-8
+set formatoptions+=j
+set ignorecase
 set laststatus=2
 set number
+set smartcase
 set spell
+set textwidth=79
 
 " Disable arrow keys.
 nnoremap <up> <nop>
