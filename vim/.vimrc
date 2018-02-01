@@ -57,6 +57,7 @@ let g:airline_left_sep = '▶'
 let g:airline_right_sep = '◀'
 
 " ALE settings.
+let g:ale_sign_info = 'ℹ'
 let g:ale_sign_error = '×'
 let g:ale_sign_warning = '⚠'
 let g:ale_set_highlights = 0
