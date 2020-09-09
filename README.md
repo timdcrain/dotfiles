@@ -18,7 +18,6 @@ not all required, however some configs rely on other programs being present
 * systemd
 * tmux
 * vim
-* vimperator (firefox)
 * zathura
 * zsh
 
