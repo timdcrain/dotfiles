@@ -11,7 +11,7 @@ if [[ -f /usr/share/bash-completion/bash_completion ]]; then
 fi
 
 # Add ~/bin to path.
-export PATH="$HOME/bin:$PATH"
+export PATH="$HOME/bin:$HOME/.cargo/bin:$PATH"
 
 # Environment Variables
 export EDITOR=vim
