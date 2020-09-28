@@ -1,0 +1,85 @@
+{
+  "layer": "top",
+  "position": "top",
+
+  "modules-left": [
+    "clock#time",
+    "tray"
+  ],
+
+  "modules-center": [
+    "custom/workspace-prev",
+    "sway/workspaces",
+    "custom/workspace-next"
+  ],
+
+  "modules-right": [
+    "network",
+    "battery"
+  ],
+
+  "clock#time": {
+    "interval": 1,
+    "locale": "C",
+    "timezone": "America/Los_Angeles",
+    "format": "{:%H:%M}",
+    "tooltip": false
+  },
+
+  "clock#date": {
+    "interval": 20,
+    "locale": "C",
+    "timezone": "America/Los_Angeles",
+    "format": "{:%e %b %Y}",
+    "tooltip": false
+  },
+
+  "battery": {
+    "interval": 1,
+    "states": {
+      "warning": 30,
+      "critical": 15
+    },
+    "format-charging": " {capacity}%",
+    "format": "{icon} {capacity}%",
+    "format-icons": ["", "", "", "", ""],
+    "tooltip": false
+  },
+
+  "network": {
+    "interval": 5,
+    "format-wifi": "",
+    "format-ethernet": "",
+    "format-disconnected": "",
+    "tooltip": false
+  },
+
+  "sway/workspaces": {
+    "all-outputs": false,
+    "disable-scroll": true,
+    "persistent_workspaces": {
+      "1": []
+    },
+    "format": "{name}",
+    "format-icons": {
+      "urgent": "",
+      "focused": "",
+      "default": ""
+    }
+  },
+
+  "custom/workspace-prev": {
+    "command": "swaymsg workspace prev",
+    "format": ""
+  },
+
+  "custom/workspace-next": {
+    "command": "swaymsg workspace next",
+    "format": ""
+  },
+
+  "tray": {
+    "icon-size": 22
+  }
+
+}

@@ -1,0 +1,8 @@
+#!/bin/sh
+
+max_workspace="$(swaymsg -t get_workspaces | jq -r ".[].name" | sort -n -r | head -n 1)"
+next_workspace="$(expr "${max_workspace}" + 1)"
+swaymsg workspace "${next_workspace}"
+~/.local/bin/keyboard_toggle true
+launcher="sh -c 'compgen -c | grep -v fzf | sort -u | fzf --layout=reverse | xargs -r swaymsg -t command exec'"
+swaymsg exec "termite --name=launcher -e \"${launcher}\""

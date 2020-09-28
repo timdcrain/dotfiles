@@ -1,0 +1,32 @@
+{
+  "layer": "top",
+  "position": "bottom",
+
+  "modules-left": [
+    "custom/kill"
+  ],
+
+  "modules-center": [
+    "custom/launcher"
+  ],
+
+  "modules-right": [
+    "custom/keyboard"
+  ],
+
+  "custom/kill": {
+    "on-click": "swaymsg kill",
+    "format": "☒"
+  },
+
+  "custom/launcher": {
+    "on-click": "swaymsg exec ~/.local/bin/launcher",
+    "format": "",
+    "format-icons": ["", ""]
+  },
+
+  "custom/keyboard": {
+    "on-click": "swaymsg exec ~/.local/bin/toggle_keyboard",
+    "format": ""
+  }
+}
