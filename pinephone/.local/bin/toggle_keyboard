@@ -1,3 +1,23 @@
 #!/bin/sh
 
-busctl call --user sm.puri.OSK0 /sm/puri/OSK0 sm.puri.OSK0 SetVisible b true
+pidof squeekboard || squeekboard &
+
+desired_state="$1"
+current_state="$(busctl get-property --user sm.puri.OSK0 /sm/puri/OSK0 sm.puri.OSK0 Visible)"
+
+if [ -z "${desired_state}" ]; then
+    desired_state="true"
+    if [ "${current_state}" == "b true" ]; then
+        desired_state="false"
+    fi
+fi
+
+if [ "${current_state}" != "b ${desired_state}" ]; then
+    busctl call --user sm.puri.OSK0 /sm/puri/OSK0 sm.puri.OSK0 SetVisible b "${desired_state}"
+fi
+
+if [ "${desired_state}" == "true" ]; then
+    echo 1
+else
+    echo 0
+fi
