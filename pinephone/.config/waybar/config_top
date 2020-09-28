@@ -8,9 +8,7 @@
   ],
 
   "modules-center": [
-    "custom/workspace-prev",
-    "sway/workspaces",
-    "custom/workspace-next"
+    "sway/workspaces"
   ],
 
   "modules-right": [
@@ -68,18 +66,7 @@
     }
   },
 
-  "custom/workspace-prev": {
-    "command": "swaymsg workspace prev",
-    "format": ""
-  },
-
-  "custom/workspace-next": {
-    "command": "swaymsg workspace next",
-    "format": ""
-  },
-
   "tray": {
     "icon-size": 22
   }
-
 }
