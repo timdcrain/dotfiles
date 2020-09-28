@@ -23,19 +23,23 @@ set $menu dmenu_path | dmenu | xargs swaymsg exec --
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
-#
-# Example configuration:
-#
-#   output HDMI-A-1 resolution 1920x1080 position 1920,0
-#
-# You can get the names of your outputs by running: swaymsg -t get_outputs
+set $background /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png
+output * bg $background fill
+
+# Scale the touchscreen LCD UI
+output DSI-1 scale 2
+
+# Power Button
+set $lock 'swaylock -f -c 000000 -s fill -i $background; swaymsg "output * dpms off"'
+set $unlock 'killall swaylock; swaymsg "output * dpms on"'
+bindsym XF86PowerOff exec $lock
+bindsym --locked XF86PowerOff exec $unlock
 
 ### Idle configuration
 exec swayidle -w \
-        timeout 300 'swaylock -f -c 000000' \
-        timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
-        before-sleep 'swaylock -f -c 000000'
+        timeout 15 '$lock' \
+        resume '$unlock' \
+        before-sleep '$lock'
 
 ### Input configuration
 #
@@ -50,6 +54,10 @@ exec swayidle -w \
 #
 # You can get the names of your inputs by running: swaymsg -t get_inputs
 # Read `man 5 sway-input` for more information about this section.
+
+# Bind input and output for correct rotation support
+input 1046:4097:Goodix_Capacitive_TouchScreen map_to_output DSI-1
+
 
 ### Key bindings
 #
@@ -192,11 +200,13 @@ bindsym $mod+r mode "resize"
 #
 # Status Bar:
 #
-# Read `man 5 sway-bar` for more information about this section.
 exec "waybar -c ~/.config/waybar/config_top -b top"
 exec "waybar -c ~/.config/waybar/config_bottom -b bottom"
 
 # Default windows to no border
 default_border none
+
+# Start keyboard hidden.
+exec '~/.local/bin/keyboard_toggle false'
 
 include /etc/sway/config.d/*
