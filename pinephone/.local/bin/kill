@@ -1,0 +1,10 @@
+#!/bin/sh
+
+workspace_windows="$(swaymsg -t get_workspaces | jq -r ".[] | select(.visible == true) | .focus | length")"
+swaymsg kill
+
+# Only return to home screen if this was the last window
+# open in the workspace.
+if [ "${workspace_windows}" == "1" ]; then
+    ~/.local/bin/home
+fi
