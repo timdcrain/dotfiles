@@ -15,9 +15,11 @@ not all required, however some configs rely on other programs being present
 * i3-wm
 * ranger
 * rofi
+* sway (pinephone)
 * systemd
 * tmux
 * vim
+* waybar (pinephone)
 * zathura
 * zsh
 
@@ -38,6 +40,13 @@ i3-wm:
 vim:
 
 * Vundle
+
+sway (pinephone):
+
+* jq
+* swaylock
+* termite
+* waybar
 
 Installation
 ------------
