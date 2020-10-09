@@ -1,0 +1,4 @@
+#!/bin/sh
+
+~/.local/bin/toggle_keyboard false
+swaymsg workspace 1
