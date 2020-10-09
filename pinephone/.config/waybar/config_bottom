@@ -7,7 +7,7 @@
   ],
 
   "modules-center": [
-    "custom/launcher"
+    "custom/home"
   ],
 
   "modules-right": [
@@ -15,18 +15,23 @@
   ],
 
   "custom/kill": {
-    "on-click": "swaymsg kill",
-    "format": "☒"
+    "on-click": "~/.local/bin/kill",
+    "format": ""
+  },
+
+  "custom/home": {
+    "on-click": "~/.local/bin/home",
+    "format": ""
   },
 
   "custom/launcher": {
-    "on-click": "swaymsg exec ~/.local/bin/launcher",
+    "on-click": "~/.local/bin/launcher",
     "format": "",
     "format-icons": ["", ""]
   },
 
   "custom/keyboard": {
-    "on-click": "swaymsg exec ~/.local/bin/toggle_keyboard",
+    "on-click": "~/.local/bin/toggle_keyboard",
     "format": ""
   }
 }
