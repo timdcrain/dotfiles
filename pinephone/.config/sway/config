@@ -14,7 +14,7 @@ set $down j
 set $up k
 set $right l
 # Your preferred terminal emulator
-set $term alacritty
+set $term termite
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
@@ -30,16 +30,19 @@ output * bg $background fill
 output DSI-1 scale 2
 
 # Power Button
-set $lock 'swaylock -f -c 000000 -s fill -i $background; swaymsg "output * dpms off"'
-set $unlock 'killall swaylock; swaymsg "output * dpms on"'
-bindsym XF86PowerOff exec $lock
-bindsym --locked XF86PowerOff exec $unlock
+set $suspend "echo mem | sudo tee /sys/power/state"
+set $screen_off "swaymsg \"output * dpms off\""
+set $screen_on "swaymsg \"output * dpms on\""
+set $lock "swaylock -f"
+set $unlock "killall swaylock"
+bindcode 124 exec "$screen_off"; exec "$lock";
+bindcode --locked 124 exec "$screen_on"; exec "$unlock"
 
 ### Idle configuration
 exec swayidle -w \
-        timeout 15 '$lock' \
-        resume '$unlock' \
-        before-sleep '$lock'
+        timeout 15 exec "$screen_off"; exec "$lock" \
+        resume exec "$screen_on"; exec "$unlock" \
+        before-sleep exec "$screen_off"; exec "$lock"
 
 ### Input configuration
 #
@@ -58,6 +61,12 @@ exec swayidle -w \
 # Bind input and output for correct rotation support
 input 1046:4097:Goodix_Capacitive_TouchScreen map_to_output DSI-1
 
+input type:touch {
+    tap enabled
+    drag enabled
+    natural_scroll enabled
+    tap_button_map lrm
+}
 
 ### Key bindings
 #
@@ -207,6 +216,6 @@ exec "waybar -c ~/.config/waybar/config_bottom -b bottom"
 default_border none
 
 # Start keyboard hidden.
-exec '~/.local/bin/keyboard_toggle false'
+exec ~/.local/bin/toggle_keyboard false
 
 include /etc/sway/config.d/*
