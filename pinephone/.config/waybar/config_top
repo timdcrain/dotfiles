@@ -24,14 +24,6 @@
     "tooltip": false
   },
 
-  "clock#date": {
-    "interval": 20,
-    "locale": "C",
-    "timezone": "America/Los_Angeles",
-    "format": "{:%e %b %Y}",
-    "tooltip": false
-  },
-
   "battery": {
     "interval": 1,
     "states": {
