@@ -46,6 +46,9 @@ vim:
 sway (desktop):
 
 * alacritty
+* light
+* swayidle
+* swaylock
 * waybar
 * wofi
 
