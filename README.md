@@ -8,6 +8,7 @@ This repository contains configuration for the following programs. They are
 not all required, however some configs rely on other programs being present
 (for instance, i3 has key bindings for rofi).
 
+* alacritty
 * borg
 * git
 * gtk
@@ -15,11 +16,12 @@ not all required, however some configs rely on other programs being present
 * i3-wm
 * ranger
 * rofi
-* sway (pinephone)
+* sway (desktop & pinephone)
 * systemd
 * tmux
 * vim
-* waybar (pinephone)
+* waybar (desktop & pinephone)
+* wofi
 * zathura
 * zsh
 
@@ -40,6 +42,12 @@ i3-wm:
 vim:
 
 * Vundle
+
+sway (desktop):
+
+* alacritty
+* waybar
+* wofi
 
 sway (pinephone):
 
