@@ -1,0 +1,15 @@
+window {
+    background-color: #373b41;
+    color: #c5c8c6;
+    font-family: "Liberation Mono";
+}
+
+#entry:selected {
+    background-color: #268bd2;
+}
+
+#input {
+    background-color: #373b41;
+    color: #b4b7b4;
+    border: none;
+}
