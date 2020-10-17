@@ -221,8 +221,8 @@ bindsym XF86MonBrightnessDown exec "brightnessctl s 5%-"
 # Default windows to no border
 default_border none
 
-exec waybar
 exec ~/.local/bin/autoname-workspaces
-exec dropbox-cli
+exec waybar
+exec dropbox-cli start
 
 include /etc/sway/config.d/*
