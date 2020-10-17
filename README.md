@@ -46,7 +46,7 @@ vim:
 sway (desktop):
 
 * alacritty
-* light
+* brightnessctl
 * swayidle
 * swaylock
 * waybar
