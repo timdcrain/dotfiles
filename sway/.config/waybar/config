@@ -11,18 +11,11 @@
   ],
 
   "modules-right": [
+    "pulseaudio",
     "network",
     "battery",
-    "clock#time"
+    "clock"
   ],
-
-  "clock#time": {
-    "interval": 1,
-    "locale": "C",
-    "timezone": "America/Los_Angeles",
-    "format": "{:%H:%M}",
-    "tooltip": false
-  },
 
   "battery": {
     "interval": 1,
@@ -36,26 +29,30 @@
     "tooltip": false
   },
 
+  "clock": {
+    "interval": 1,
+    "locale": "C",
+    "timezone": "America/Los_Angeles",
+    "format": " {:%Y.%m.%d %H:%M}",
+    "tooltip": false
+  },
+
   "network": {
     "interval": 5,
-    "format-wifi": "",
+    "format-wifi": " {essid}",
     "format-ethernet": "",
     "format-disconnected": "",
     "tooltip": false
   },
 
+  "pulseaudio": {
+    "format": " {volume}%",
+    "format-muted": "{volume}%"
+  },
+
   "sway/workspaces": {
-    "all-outputs": false,
     "disable-scroll": true,
-    "persistent_workspaces": {
-      "1": []
-    },
-    "format": "{name}",
-    "format-icons": {
-      "urgent": "",
-      "focused": "",
-      "default": ""
-    }
+    "format": "{name}"
   },
 
   "tray": {
