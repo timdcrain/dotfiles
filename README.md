@@ -47,6 +47,8 @@ sway (desktop):
 
 * alacritty
 * brightnessctl
+* python-i3ipc
+* pavucontrol
 * swayidle
 * swaylock
 * waybar

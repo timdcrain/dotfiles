@@ -3,14 +3,14 @@
   "position": "top",
 
   "modules-left": [
-    "sway/workspaces",
-    "tray"
+    "sway/workspaces"
   ],
 
   "modules-center": [
   ],
 
   "modules-right": [
+    "tray",
     "pulseaudio",
     "network",
     "battery",
@@ -23,8 +23,8 @@
       "warning": 30,
       "critical": 15
     },
-    "format-charging": " {capacity}%",
-    "format": "{icon} {capacity}%",
+    "format-charging": "",
+    "format": "{icon}",
     "format-icons": ["", "", "", "", ""],
     "tooltip": false
   },
@@ -33,29 +33,30 @@
     "interval": 1,
     "locale": "C",
     "timezone": "America/Los_Angeles",
-    "format": " {:%Y.%m.%d %H:%M}",
+    "format": "{:%Y.%m.%d  %H:%M}",
     "tooltip": false
   },
 
   "network": {
     "interval": 5,
-    "format-wifi": " {essid}",
-    "format-ethernet": "",
-    "format-disconnected": "",
+    "format": "{icon}",
+    "format-icons": {
+        "wifi": [""],
+        "ethernet": [""],
+        "disconnected": [""]
+    },
     "tooltip": false
   },
 
   "pulseaudio": {
-    "format": " {volume}%",
-    "format-muted": "{volume}%"
+    "format": " ",
+    "format-muted": "",
+    "on-click": "pavucontrol",
+    "tooltip": false
   },
 
   "sway/workspaces": {
     "disable-scroll": true,
     "format": "{name}"
-  },
-
-  "tray": {
-    "icon-size": 22
   }
 }
