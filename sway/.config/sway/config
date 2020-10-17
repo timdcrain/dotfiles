@@ -222,6 +222,7 @@ bindsym XF86MonBrightnessDown exec light -U 5
 default_border none
 
 exec waybar
+exec ~/.local/bin/autoname-workspaces
 exec dropbox-cli
 
 include /etc/sway/config.d/*

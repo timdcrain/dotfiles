@@ -1,0 +1,95 @@
+#!/usr/bin/python
+
+# Based on https://github.com/swaywm/sway/blob/master/contrib/autoname-workspaces.py
+
+import i3ipc
+import re
+import signal
+import sys
+
+application_icons = {
+    "firefox": "",
+    "alacritty": "",
+}
+
+default_icon = ""
+
+
+def icon_for_window(window):
+    app_id = window.app_id
+    if app_id is not None and len(app_id) > 0:
+        app_id = app_id.lower()
+        if app_id in application_icons:
+            return application_icons[app_id]
+
+    else:
+        # xwayland support
+        class_name = window.window_class
+        if len(class_name) > 0:
+            class_name = class_name.lower()
+            if class_name in application_icons:
+                return application_icons[class_name]
+
+    return default_icon
+
+
+def rename_workspaces(ipc):
+    for workspace in ipc.get_tree().workspaces():
+        name_parts = parse_workspace_name(workspace.name)
+        icons = []
+        for window in workspace:
+            if window.app_id is not None or window.window_class is not None:
+                icon = icon_for_window(window)
+                if icon in icons:
+                    continue
+                icons.append(icon)
+        name_parts['icons'] = '  '.join(icons) + ' '
+        name = construct_workspace_name(name_parts)
+        ipc.command(f'rename workspace "{workspace.name}" to "{name}"')
+
+
+def undo_window_renaming(ipc):
+    for workspace in ipc.get_tree().workspaces():
+        name_parts = parse_workspace_name(workspace.name)
+        name_parts['icons'] = None
+        name = construct_workspace_name(name_parts)
+        ipc.command(f'rename workspace "{workspace.name}" to "{name}"')
+    ipc.main_quit()
+    sys.exit(0)
+
+
+def parse_workspace_name(name):
+    return re.match(
+        '(?P<num>[0-9]+):?(?P<shortname>\w+)? ?(?P<icons>.+)?', name
+    ).groupdict()
+
+
+def construct_workspace_name(parts):
+    name = str(parts['num'])
+    if parts['shortname'] or parts['icons']:
+        name += ':'
+
+        if parts['shortname']:
+            name += parts['shortname']
+
+        if parts['icons']:
+            name += f' {parts["icons"]}'
+
+    return name
+
+
+if __name__ == '__main__':
+    ipc = i3ipc.Connection()
+
+    for sig in [signal.SIGINT, signal.SIGTERM]:
+        signal.signal(sig, lambda signal, frame: undo_window_renaming(ipc))
+
+    def window_event_handler(ipc, e):
+        if e.change in ['new', 'close', 'move']:
+            rename_workspaces(ipc)
+
+    ipc.on('window', window_event_handler)
+
+    rename_workspaces(ipc)
+
+    ipc.main()
