@@ -1,4 +1,5 @@
 # Exclude the following directories.
+/home/*/.android
 /home/*/.bundle
 /home/*/.cache
 /home/*/.cargo
@@ -6,11 +7,13 @@
 /home/*/.dropbox-dist
 /home/*/.emacs.d
 /home/*/.gem
-/home/*/.opam
-/home/*/.vim
-/home/*/.vimperator
-/home/*/Downloads
 /home/*/.git
+/home/*/.gradle
+/home/*/.java
+/home/*/.opam
+/home/*/.rustup
+/home/*/.vim
+/home/*/downloads
 
 # Filetypes to exclude.
 *.swp
