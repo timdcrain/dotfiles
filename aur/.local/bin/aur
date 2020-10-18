@@ -1,0 +1,46 @@
+#!/bin/sh
+
+aur_pkg_cache=${XDG_CACHE_HOME:-$HOME/.cache}/aur/pkg
+
+if [ ! -d ${aur_pkg_cache} ]; then
+    mkdir -p ${aur_pkg_cache}
+fi
+
+sync=0
+search=0
+upgrade=0
+
+while getopts "Ssyu" option; do
+    case "${option}" in
+        S) sync=1 ;;
+        s) search=1 ;;
+        y) ;; # Ignore, since we don't refresh the database.
+        u) upgrade=1 ;;
+    esac
+done
+
+shift $((OPTIND - 1))
+packages="$@"
+
+if [ "${sync}" -eq 1 ]; then
+    if [ "${search}" -eq 1 ]; then
+        echo "Search currently not supported."
+
+    elif [ "${upgrade}" -eq 1 ]; then
+        for package in ${aur_pkg_cache}/*; do
+            cd ${package}
+            git pull --ff-only
+            makepkg -srci
+        done
+
+    else
+        for package in ${packages}; do
+            if [ ! -d ${aur_pkg_cache}/${package} ]; then
+                git clone "https://aur.archlinux.org/${package}.git" ${aur_pkg_cache}/${package}
+            fi
+
+            cd ${aur_pkg_cache}/${package}
+            makepkg -srci
+        done
+    fi
+fi
