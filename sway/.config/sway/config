@@ -223,6 +223,6 @@ default_border none
 
 exec ~/.local/bin/autoname-workspaces
 exec waybar
-exec dropbox-cli start
+exec dropbox
 
 include /etc/sway/config.d/*
