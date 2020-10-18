@@ -9,6 +9,7 @@ not all required, however some configs rely on other programs being present
 (for instance, i3 has key bindings for rofi).
 
 * alacritty
+* aur
 * borg
 * git
 * gtk
@@ -34,10 +35,10 @@ need to install yourself:
 i3-wm:
 
 * amixer
-* dropbox-cli
+* dropbox
 * i3status
 * rofi
-* ttf-font-awesome
+* otf-font-awesome
 
 vim:
 
@@ -47,6 +48,7 @@ sway (desktop):
 
 * alacritty
 * brightnessctl
+* otf-font-awesome
 * python-i3ipc
 * pavucontrol
 * swayidle
@@ -57,6 +59,7 @@ sway (desktop):
 sway (pinephone):
 
 * jq
+* otf-font-awesome
 * swaylock
 * termite
 * waybar
