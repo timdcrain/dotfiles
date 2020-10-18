@@ -10,6 +10,8 @@ import sys
 application_icons = {
     "firefox": "",
     "alacritty": "",
+    "vlc": "",
+    "org.pwmt.zathura": "",
 }
 
 default_icon = ""
