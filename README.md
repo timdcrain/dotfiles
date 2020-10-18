@@ -53,6 +53,7 @@ sway (desktop):
 * swayidle
 * swaylock
 * waybar
+* wob
 * wofi
 
 sway (pinephone):
