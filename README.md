@@ -13,7 +13,6 @@ not all required, however some configs rely on other programs being present
 * borg
 * git
 * gtk
-* hangups
 * i3-wm
 * ranger
 * rofi
