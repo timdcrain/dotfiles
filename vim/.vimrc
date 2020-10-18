@@ -89,7 +89,7 @@ nnoremap <F8> :TagbarToggle<CR>
 
 " General settings.
 set backspace=start,eol,indent
-set directory=~/tmp,/var/tmp,/tmp
+set directory=~/.cache/vim/swap,/var/tmp,/tmp
 set encoding=utf-8
 set formatoptions+=j
 set ignorecase
