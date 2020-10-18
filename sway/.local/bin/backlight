@@ -2,4 +2,4 @@
 
 brightnessctl --quiet s "$1"
 value="$(brightnessctl -m | cut -d, -f4)"
-echo "${value%?}" > $SWAYSOCK.wob
+~/.local/bin/notify "${value%?}"

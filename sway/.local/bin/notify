@@ -1,0 +1,28 @@
+#!/bin/sh
+
+wob_cache=${XDG_CACHE_HOME:-$HOME/.cache}/wob
+wob_sock=${wob_cache}/$(basename $SWAYSOCK).wob
+
+if [ ! -d ${wob_cache} ]; then
+    mkdir -p ${wob_cache}
+fi
+
+# Clean up old fifos from previous sessions before starting a new one.
+if [ ! -p ${wob_sock} ]; then
+    rm ${wob_cache}/*.wob
+    mkfifo ${wob_sock}
+fi
+
+# Assumes that only a single wob instance will be running.
+if ! pgrep -x wob; then
+    tail -f ${wob_sock} | wob &
+fi
+
+# wob will crash if we give it a value outside of the min/max range.
+if [ $1 -gt 100 ]; then
+    echo 100 > ${wob_sock}
+elif [ $1 -lt 0 ]; then
+    echo 0 > ${wob_sock}
+else
+    echo $1 > ${wob_sock}
+fi

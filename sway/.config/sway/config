@@ -221,8 +221,6 @@ bindsym XF86MonBrightnessDown exec ~/.local/bin/backlight 2%-
 # Default windows to no border
 default_border none
 
-exec mkfifo $SWAYSOCK.wob
-exec tail -f $SWAYSOCK.wob | wob
 exec ~/.local/bin/autoname-workspaces
 exec waybar
 exec dropbox
