@@ -12,6 +12,7 @@ application_icons = {
     "alacritty": "",
     "vlc": "",
     "org.pwmt.zathura": "",
+    "org.keepassxc.keepassxc": "",
 }
 
 default_icon = ""
