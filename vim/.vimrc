@@ -97,7 +97,7 @@ set laststatus=2
 set number
 set smartcase
 set spell
-set textwidth=79
+set textwidth=119
 
 " Disable arrow keys.
 nnoremap <up> <nop>
