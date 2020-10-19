@@ -50,6 +50,7 @@ sway (desktop):
 * otf-font-awesome
 * python-i3ipc
 * pavucontrol
+* qt5-wayland (for QT apps)
 * swayidle
 * swaylock
 * waybar
