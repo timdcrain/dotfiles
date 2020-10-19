@@ -115,3 +115,26 @@ map <c-j> <c-w>j
 map <c-k> <c-w>k
 map <c-l> <c-w>l
 map <c-h> <c-w>h
+
+function! ScrollToPercent(percent)
+    let l:current_row = winline()
+    let l:desired_row = winheight(0) * a:percent / 100
+    if has("float") && type(desired_row) == type(0.0)
+        let l:desired_row = float2nr(l:desired_row)
+    endif
+
+    let l:diff = abs(current_row - desired_row)
+
+    if current_row > desired_row
+        " The cursor is below the desired row, and we need
+        " to move the cursor UP.
+        execute 'normal! ' . diff . ''
+    elseif current_row < desired_row
+        " The cursor is above the desired row, and we need
+        " to move the cursor DOWN.
+        execute 'normal! ' . diff . ''
+    endif
+endfunction
+
+nnoremap <silent> zu :call ScrollToPercent(25)<cr>
+nnoremap <silent> zd :call ScrollToPercent(75)<cr>
