@@ -13,6 +13,7 @@ application_icons = {
     "vlc": "",
     "org.pwmt.zathura": "",
     "org.keepassxc.keepassxc": "",
+    "nm-connection-editor": "",
 }
 
 default_icon = ""
