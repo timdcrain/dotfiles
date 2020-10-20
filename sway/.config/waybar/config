@@ -38,14 +38,17 @@
   },
 
   "network": {
-    "interval": 5,
+    "interval": 1,
+    "interface": "wlp58s0",
     "format": "{icon}",
     "format-icons": {
         "wifi": [""],
         "ethernet": [""],
         "disconnected": [""]
     },
-    "tooltip": false
+    "tooltip-format-wifi": "{essid} {signalStrength}%",
+    "tooltip": true,
+    "on-click": "~/.local/bin/wifi-menu"
   },
 
   "pulseaudio": {
