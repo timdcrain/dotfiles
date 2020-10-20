@@ -1,0 +1,79 @@
+#!/bin/sh
+
+dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+wofi_config_dir=${XDG_CONFIG_HOME:-$HOME/.config}/wofi
+
+fields="SSID,SECURITY"
+position=3 # top right
+prompt="SSID:"
+
+if [ -r ${wofi_config_dir}/wifi ]; then
+    #source "$HOME/.config/wofi/wifi"
+    echo "Found config"
+else
+    echo "WARNING: config file not found! Using default values."
+fi
+
+ssids=$(nmcli --fields "${fields}" device wifi list | sed '/^--/d' | tail -n +2)
+# Width in pixels. Has to be adjusted to account for font size.
+width=$(($(echo "Enabled\nDisabled\n${ssids}" | wc -L) * 7))
+# Gives a list of known connections so we can parse it later
+connections=$(nmcli --fields NAME connection show)
+# Really janky way of telling if there is currently a connection
+cur_state=$(nmcli --fields WIFI g)
+cur_ssid=$(LANGUAGE=C nmcli -t -f active,ssid dev wifi | awk -F: '$1 ~ /^yes/ {print $2}')
+
+# Dynamically change the height of the rofi menu.
+# If there are more than 8 SSIDs, the menu will still only have 8 lines.
+linenum=$(echo "${ssids}" | wc -l)
+if [ "${linenum}" -gt 8 ] && [[ "${cur_state}" =~ "enabled" ]]; then
+    linenum=8
+elif [[ "${cur_state}" =~ "disabled" ]]; then
+    linenum=1
+fi
+
+toggle="Enable"
+if [[ "${cur_state}" =~ "enabled" ]]; then
+    toggle="Disable"
+fi
+
+chosen_entry="$(echo -e "${toggle}\n${ssids}\nEdit" | wofi --dmenu --prompt "${prompt}" --lines "${linenum}" --location "${position}" --width "${width}")"
+chosen_ssid="$(echo "${chosen_entry}" | sed  's/\s\{2,\}/\|/g' | awk -F "|" '{print $1}')"
+
+if [ "${cur_ssid}" = "${chosen_ssid}" ]; then
+    # Already connected to this SSID, so don't do anything.
+    exit
+
+elif [ -z "${chosen_entry}" ]; then
+    # No SSID was chosen, so don't do anything.
+    exit
+
+elif [ "${chosen_entry}" = "Edit" ]; then
+    nm-connection-editor
+
+elif [ "${chosen_entry}" = "Enable" ]; then
+    nmcli radio wifi on
+
+elif [ "${chosen_entry}" = "Disable" ]; then
+    nmcli radio wifi off
+
+else
+    # Parses the list of preconfigured connections to see if it already contains
+    # the chosen SSID. This speeds up the connection process
+    if [[ "$(echo "${connections}" | grep "^${chosen_ssid} *$")" =~ "${chosen_ssid}" ]]; then
+        nmcli con up "${chosen_ssid}"
+
+    else
+        if [[ "${chosen_entry}" =~ "WPA2" ]] || [[ "${chosen_entry}" =~ "WEP" ]]; then
+            password=$(wofi --dmenu --location "${position}" --width "${width}" --password)
+            if [ -z "${password}" ]; then
+                # Password was not entered, so don't do anything.
+                exit
+            fi
+
+            nmcli dev wifi con "${chosen_ssid}" password "${password}"
+        fi
+
+        nmcli dev wifi con "${chosen_ssid}"
+    fi
+fi
