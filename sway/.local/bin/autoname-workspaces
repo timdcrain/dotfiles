@@ -8,7 +8,7 @@ import signal
 import sys
 
 application_icons = {
-    "firefox": "",
+    "firefox": "",
     "alacritty": "",
     "vlc": "",
     "org.pwmt.zathura": "",
