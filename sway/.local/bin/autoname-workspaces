@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/env python
 
 # Based on https://github.com/swaywm/sway/blob/master/contrib/autoname-workspaces.py
 
