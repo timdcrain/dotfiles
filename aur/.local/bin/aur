@@ -8,13 +8,14 @@ fi
 
 sync=0
 search=0
+refresh=0
 upgrade=0
 
 while getopts "Ssyu" option; do
     case "${option}" in
         S) sync=1 ;;
         s) search=1 ;;
-        y) ;; # Ignore, since we don't refresh the database.
+        y) refresh=1 ;;
         u) upgrade=1 ;;
     esac
 done
@@ -24,23 +25,45 @@ packages="$@"
 
 if [ "${sync}" -eq 1 ]; then
     if [ "${search}" -eq 1 ]; then
-        echo "Search currently not supported."
+        if [ "${upgrade}" -eq 1 ]; then
+            echo "error: invalid option: '--search' and '--sysupgrade' may not be used together" >&2
+            exit 1
+        fi
 
-    elif [ "${upgrade}" -eq 1 ]; then
+        echo "Search currently not supported."
+    fi
+
+    if [ "${refresh}" -eq 1 ]; then
+        echo ":: Synchronizing package databases..."
         for package in ${aur_pkg_cache}/*; do
             cd ${package}
-            git pull --ff-only
-            makepkg -srci
-        done
-
-    else
-        for package in ${packages}; do
-            if [ ! -d ${aur_pkg_cache}/${package} ]; then
-                git clone "https://aur.archlinux.org/${package}.git" ${aur_pkg_cache}/${package}
-            fi
-
-            cd ${aur_pkg_cache}/${package}
-            makepkg -srci
+            git remote update
         done
     fi
+
+    if [ "${upgrade}" -eq 1 ]; then
+        for package in ${aur_pkg_cache}/*; do
+            cd ${package}
+            # Only install if there are changes in upstream.
+            if [ ! -z "$(git status --porcelain)" ]; then
+                git pull --ff-only
+                makepkg -srci
+            fi
+        done
+
+    fi
+
+    if [ "${search}" -eq 0 ] && [ "${refresh}" -eq 0 ] && [ "${upgrade}" -eq 0 ] && [ -z "${packages}" ]; then
+        echo "error: no targets specified (use -h for help)" >&2
+        exit 1
+    fi
+
+    for package in ${packages}; do
+        if [ ! -d ${aur_pkg_cache}/${package} ]; then
+            git clone "https://aur.archlinux.org/${package}.git" ${aur_pkg_cache}/${package}
+        fi
+
+        cd ${aur_pkg_cache}/${package}
+        makepkg -srci
+    done
 fi
