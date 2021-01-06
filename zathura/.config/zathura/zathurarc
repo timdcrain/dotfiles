@@ -1,6 +1,6 @@
 # base16-tomorrow scheme
 
-set font                        "Terminus 14"
+set font                        "Liberation Mono 12"
 set default-bg                  "#1d1f21" #00
 set default-fg                  "#282a2e" #01
 
