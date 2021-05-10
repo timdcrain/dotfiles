@@ -224,6 +224,10 @@ default_border none
 # Disable Xwayland. For now, all applications used are Wayland native.
 xwayland disable
 
+# Inhibit idle when apps are fullscreen
+for_window [class="^.*"] inhibit_idle fullscreen
+for_window [app_id="^.*"] inhibit_idle fullscreen
+
 exec ~/.local/bin/autoname-workspaces
 exec waybar
 exec dropbox
