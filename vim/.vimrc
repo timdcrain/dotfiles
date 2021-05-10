@@ -92,6 +92,25 @@ hi clear SignifySignAdd
 hi clear SignifySignChange
 hi clear SignifySignDelete
 
+function! SignifyHunkNext(count) abort
+    let oldpos = getcurpos()
+    call sy#jump#next_hunk(a:count)
+    if getcurpos() == oldpos
+        call sy#jump#prev_hunk(9999)
+    endif
+endfunction
+
+function! SignifyHunkPrev(count) abort
+    let oldpos = getcurpos()
+    call sy#jump#prev_hunk(a:count)
+    if getcurpos() == oldpos
+        call sy#jump#next_hunk(9999)
+    endif
+endfunction
+
+nnoremap <silent> [c :call SignifyHunkPrev(1)<cr>
+nnoremap <silent> ]c :call SignifyHunkNext(1)<cr>
+
 " Jedi settings.
 autocmd FileType python setlocal completeopt-=preview
 let g:jedi#show_call_signatures = 0
