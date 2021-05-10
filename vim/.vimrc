@@ -37,10 +37,12 @@ filetype plugin indent on
 " Color scheme. This must come after the syntax and
 " filetype lines so that the hi commands work.
 set background=dark
-colorscheme base16-tomorrow
+colorscheme base16-tomorrow-night
 hi LineNr ctermbg=00
 hi SignColumn ctermbg=00
 hi SpecialKey ctermfg=11
+hi clear SpellBad
+hi SpellBad cterm=undercurl
 
 " Expand tabs to four spaces.
 set tabstop=4
