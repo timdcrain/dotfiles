@@ -7,7 +7,6 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 Plugin 'VundleVim/Vundle.vim'
-Plugin 'airblade/vim-gitgutter'
 Plugin 'chaoren/vim-wordmotion'
 Plugin 'chriskempson/base16-vim'
 Plugin 'christoomey/vim-tmux-navigator'
@@ -15,6 +14,7 @@ Plugin 'davidhalter/jedi-vim'
 Plugin 'ervandew/supertab'
 Plugin 'jceb/vim-orgmode'
 Plugin 'majutsushi/tagbar'
+Plugin 'mhinz/vim-signify'
 Plugin 'rust-lang/rust.vim'
 Plugin 'timdcrain/vim-captains-log'
 Plugin 'tpope/vim-commentary'
@@ -38,11 +38,12 @@ filetype plugin indent on
 " filetype lines so that the hi commands work.
 set background=dark
 colorscheme base16-tomorrow-night
-hi LineNr ctermbg=00
-hi SignColumn ctermbg=00
-hi SpecialKey ctermfg=11
-hi clear SpellBad
-hi SpellBad cterm=undercurl
+call Base16hi("LineNr", g:base16_gui03, g:base16_gui00, g:base16_cterm03, g:base16_cterm00)
+call Base16hi("SignColumn", g:base16_gui03, g:base16_gui00, g:base16_cterm03, g:base16_cterm00)
+call Base16hi("SpellBad", "", g:base16_gui00, "", g:base16_cterm00, "undercurl", g:base16_gui08)
+call Base16hi("DiffAdd", g:base16_gui0B, g:base16_gui00, g:base16_cterm0B, g:base16_cterm00)
+call Base16hi("DiffChange", g:base16_gui03, g:base16_gui00, g:base16_cterm03, g:base16_cterm00)
+call Base16hi("DiffDelete", g:base16_gui08, g:base16_gui00, g:base16_cterm08, g:base16_cterm00)
 
 " Expand tabs to four spaces.
 set tabstop=4
@@ -86,11 +87,10 @@ augroup ALERunOnInsertLeaveGroup
     autocmd InsertLeave * call ale#Queue(0)
 augroup END
 
-" Git gutter settings.
-hi GitGutterAdd ctermbg=00
-hi GitGutterChange ctermbg=00
-hi GitGutterDelete ctermbg=00
-hi GitGutterChangeDelete ctermbg=00
+" Signify settings.
+hi clear SignifySignAdd
+hi clear SignifySignChange
+hi clear SignifySignDelete
 
 " Jedi settings.
 autocmd FileType python setlocal completeopt-=preview
@@ -114,6 +114,7 @@ set number
 set smartcase
 set spell
 set textwidth=119
+set updatetime=100
 
 " Disable arrow keys.
 nnoremap <up> <nop>
