@@ -8,6 +8,7 @@ call vundle#begin()
 
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'airblade/vim-gitgutter'
+Plugin 'chaoren/vim-wordmotion'
 Plugin 'chriskempson/base16-vim'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'davidhalter/jedi-vim'
@@ -23,6 +24,7 @@ Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-sleuth'
 Plugin 'tpope/vim-speeddating'
 Plugin 'tpope/vim-surround'
+Plugin 'udalov/kotlin-vim'
 Plugin 'vim-airline/vim-airline'
 Plugin 'w0rp/ale'
 
