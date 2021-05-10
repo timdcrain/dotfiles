@@ -174,3 +174,11 @@ endfunction
 
 nnoremap <silent> zu :call ScrollToPercent(25)<cr>
 nnoremap <silent> zd :call ScrollToPercent(75)<cr>
+
+function! BalanceSplits()
+    if winnr('$') > 1
+        execute 'normal! ='
+    endif
+endfunction
+
+autocmd VimResized * :call BalanceSplits()
