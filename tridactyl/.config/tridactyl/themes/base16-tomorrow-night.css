@@ -1,0 +1,70 @@
+/* Tomorrow-night by Chris Kempson (http://chriskempson.com) */
+
+:root {
+    --base00: #1d1f21;
+    --base01: #282a2e;
+    --base02: #373b41;
+    --base03: #969896;
+    --base04: #b4b7b4;
+    --base05: #c5c8c6;
+    --base06: #e0e0e0;
+    --base07: #ffffff;
+    --base08: #cc6666;
+    --base09: #de935f;
+    --base0A: #f0c674;
+    --base0B: #b5bd68;
+    --base0C: #8abeb7;
+    --base0D: #81a2be;
+    --base0E: #b294bb;
+    --base0F: #a3685a;
+
+    --tridactyl-fg: var(--base05);
+    --tridactyl-bg: var(--base00);
+    --tridactyl-url-fg: var(--base08);
+    --tridactyl-url-bg: var(--base00);
+    --tridactyl-highlight-box-bg: var(--base0B);
+    --tridactyl-highlight-box-fg: var(--base00);
+
+    /* Hint character tags */
+    --tridactyl-hintspan-fg: var(--base00) !important;
+    --tridactyl-hintspan-bg: var(--base0A) !important;
+
+    /* Element Highlights */
+    --tridactyl-hint-active-fg: none;
+    --tridactyl-hint-active-bg: none;
+    --tridactyl-hint-active-outline: none;
+    --tridactyl-hint-bg: none;
+    --tridactyl-hint-outline: none;
+}
+
+#command-line-holder {
+    border: 2px solid var(--base0B);
+    color: var(--tridactyl-bg);
+}
+
+#tridactyl-input {
+    color: var(--tridactyl-fg);
+    background: var(--tridactyl-bg);
+}
+
+
+/* COMPLETIONS */
+
+#completions {
+    color: var(--tridactyl-fg);
+    background: var(--tridactyl-bg);
+}
+
+.TridactylStatusIndicator {
+    background: var(--tridactyl-bg) !important;
+}
+
+#completions .focused {
+    background: var(--base0B);
+    color: var(--base00);
+}
+
+#completions .focused .url {
+    background: var(--base0B);
+    color: var(--base00);
+}
