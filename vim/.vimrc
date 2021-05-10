@@ -56,9 +56,17 @@ set listchars=tab:—\—,trail:·
 set list
 
 " Airline settings.
+if !exists('g:airline_symbols')
+    let g:airline_symbols = {}
+endif
+
 let g:airline_detect_spell = 0
-let g:airline_left_sep = '▶'
-let g:airline_right_sep = '◀'
+let g:airline_left_sep = ''
+let g:airline_right_sep = ''
+let g:airline_symbols.branch = '⎇ '
+let g:airline_symbols.linenr = '☰ '
+let g:airline_symbols.maxlinenr = ''
+let g:airline#extensions#ale#enabled = 1
 
 " ALE settings.
 let g:ale_sign_info = 'ℹ'
@@ -68,11 +76,14 @@ let g:ale_set_highlights = 0
 hi ALEErrorSign ctermbg=00 ctermfg=01
 hi ALEWarningSign ctermbg=00 ctermfg=03
 
+nmap <silent> ]l <Plug>(ale_next_wrap)
+nmap <silent> [l <Plug>(ale_previous_wrap)
+
 " Don't lint while typing until we exit insert mode.
 let g:ale_lint_on_text_changed = 'normal'
 augroup ALERunOnInsertLeaveGroup
     autocmd!
-    autocmd InsertLeave * call ale#Queue(0, 'lint_file')
+    autocmd InsertLeave * call ale#Queue(0)
 augroup END
 
 " Git gutter settings.
@@ -97,6 +108,7 @@ set directory=~/.cache/vim/swap,/var/tmp,/tmp
 set encoding=utf-8
 set formatoptions+=j
 set ignorecase
+set nofoldenable
 set laststatus=2
 set number
 set smartcase
