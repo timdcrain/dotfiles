@@ -20,6 +20,7 @@ not all required, however some configs rely on other programs being present
 * sway (desktop & pinephone)
 * systemd
 * tmux
+* tridactyl
 * vim
 * waybar (desktop & pinephone)
 * wofi
