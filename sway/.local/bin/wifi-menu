@@ -37,7 +37,12 @@ if [[ "${cur_state}" =~ "enabled" ]]; then
     toggle="Disable"
 fi
 
-chosen_entry="$(echo -e "${toggle}\n${ssids}\nEdit" | wofi --dmenu --prompt "${prompt}" --lines "${linenum}" --location "${position}" --width "${width}")"
+vpn_toggle="Enable"
+if [ ! -z "$(nmcli connection show --active wg0)" ]; then
+    vpn_toggle="Disable"
+fi
+
+chosen_entry="$(echo -e "${toggle}\nVPN ${vpn_toggle}\n${ssids}\nEdit" | wofi --dmenu --prompt "${prompt}" --lines "${linenum}" --location "${position}" --width "${width}")"
 chosen_ssid="$(echo "${chosen_entry}" | sed  's/\s\{2,\}/\|/g' | awk -F "|" '{print $1}')"
 
 if [ "${cur_ssid}" = "${chosen_ssid}" ]; then
@@ -50,6 +55,12 @@ elif [ -z "${chosen_entry}" ]; then
 
 elif [ "${chosen_entry}" = "Edit" ]; then
     nm-connection-editor
+
+elif [ "${chosen_entry}" = "VPN Enable" ]; then
+    nmcli connection up wg0
+
+elif [ "${chosen_entry}" = "VPN Disable" ]; then
+    nmcli connection down wg0
 
 elif [ "${chosen_entry}" = "Enable" ]; then
     nmcli radio wifi on
