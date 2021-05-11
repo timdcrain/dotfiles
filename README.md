@@ -11,6 +11,7 @@ not all required, however some configs rely on other programs being present
 * alacritty
 * aur
 * borg
+* firefox
 * git
 * gtk
 * i3-wm
