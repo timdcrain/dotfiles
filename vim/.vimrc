@@ -25,6 +25,7 @@ Plugin 'tpope/vim-speeddating'
 Plugin 'tpope/vim-surround'
 Plugin 'udalov/kotlin-vim'
 Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 Plugin 'w0rp/ale'
 
 call vundle#end()
@@ -60,6 +61,7 @@ if !exists('g:airline_symbols')
     let g:airline_symbols = {}
 endif
 
+let g:airline_theme = 'base16_tomorrow'
 let g:airline_detect_spell = 0
 let g:airline_left_sep = ''
 let g:airline_right_sep = ''
