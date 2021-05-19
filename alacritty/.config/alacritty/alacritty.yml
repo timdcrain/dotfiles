@@ -235,12 +235,12 @@ colors:
   # Bright colors
   bright:
     black:   '#969896'
-    red:     '#cc6666'
-    green:   '#b5bd68'
-    yellow:  '#f0c674'
-    blue:    '#81a2be'
-    magenta: '#b294bb'
-    cyan:    '#8abeb7'
+    red:     '#de935f'
+    green:   '#282a2e'
+    yellow:  '#373b41'
+    blue:    '#b4b7b4'
+    magenta: '#e0e0e0'
+    cyan:    '#a3685a'
     white:   '#ffffff'
 
   # Dim colors
