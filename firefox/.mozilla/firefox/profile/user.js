@@ -21,6 +21,9 @@ user_pref("browser.send_pings", false);
 // Don't trim HTTP off the URL in the address bar.
 user_pref("browser.urlbar.trimURLs", false);
 
+// Disable Ctrl-q shortcut to close Firefox.
+user_pref("browser.quitShortcut.disabled", true);
+
 // Disable Pocket.
 user_pref("extensions.pocket.enabled", false);
 
