@@ -24,6 +24,9 @@ user_pref("browser.urlbar.trimURLs", false);
 // Disable Pocket.
 user_pref("extensions.pocket.enabled", false);
 
+// Enable Site Isolation.
+user_pref("fission.autostart", true);
+
 // Disable DNS prefetch.
 user_pref("network.dns.disablePrefetch", true);
 user_pref("network.dns.disablePrefetchFromHTTPS", true);
