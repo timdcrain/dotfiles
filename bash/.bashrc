@@ -10,30 +10,7 @@ if [[ -f /usr/share/bash-completion/bash_completion ]]; then
     source /usr/share/bash-completion/bash_completion
 fi
 
-export PATH="$HOME/.local/bin:$HOME/.cargo/bin:$PATH"
+# Source ~/.profile
+[[ -f $HOME/.profile ]] && . $HOME/.profile
 
-# Environment Variables
-export EDITOR=vim
-export LS_COLORS='di=34:ex=32'
-
-# Colored Less
-export LESS='-RgI'
-export LESS_TERMCAP_mb=$'\E[01;31m'
-export LESS_TERMCAP_md=$'\E[01;31m'
-export LESS_TERMCAP_me=$'\E[0m'
-export LESS_TERMCAP_se=$'\E[0m'
-export LESS_TERMCAP_so=$'\E[01;44;33m'
-export LESS_TERMCAP_ue=$'\E[0m'
-export LESS_TERMCAP_us=$'\E[03;32m'
-
-# Turn off Ctrl-S and Ctrl-Q
-stty -ixon -ixoff
-
-# Vim as a pager / cat
-if hash vimcat 2>/dev/null; then
-    alias oldcat=$(command -v cat)
-    alias cat='vimcat'
-fi
-
-alias ls='ls -la --color=auto'
 PS1='[\u@\h \W]\$ '

@@ -1,9 +1,7 @@
-#
-# ~/.bash_profile
-#
-
-[[ -f ~/.profile ]] && . ~/.profile
-[[ -f ~/.bashrc ]] && . ~/.bashrc
+export MOZ_ENABLE_WAYLAND=1
+export QT_WAYLAND_DISABLE_WINDOWDECORATION=1
+export QT_QPA_PLATFORM=wayland
+export DISPLAY_MANAGER=/usr/bin/sway
 
 # Launch the display manager if this is tty1
 if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then
