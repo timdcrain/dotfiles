@@ -12,6 +12,7 @@ not all required, however some configs rely on other programs being present
 * aur
 * borg
 * firefox
+* foot
 * git
 * gtk
 * i3-wm
