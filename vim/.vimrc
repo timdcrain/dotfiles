@@ -174,8 +174,8 @@ function! ScrollToPercent(percent)
     endif
 endfunction
 
-nnoremap <silent> zu :call ScrollToPercent(25)<cr>
-nnoremap <silent> zd :call ScrollToPercent(75)<cr>
+nnoremap <silent> zu :call ScrollToPercent(20)<cr>
+nnoremap <silent> zd :call ScrollToPercent(80)<cr>
 
 function! BalanceSplits()
     if winnr('$') > 1
