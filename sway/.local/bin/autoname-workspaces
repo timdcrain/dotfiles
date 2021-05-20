@@ -8,12 +8,13 @@ import signal
 import sys
 
 application_icons = {
-    "firefox": "",
     "alacritty": "",
-    "vlc": "",
-    "org.pwmt.zathura": "",
-    "org.keepassxc.keepassxc": "",
+    "firefox": "",
+    "foot": "",
     "nm-connection-editor": "",
+    "org.keepassxc.keepassxc": "",
+    "org.pwmt.zathura": "",
+    "vlc": "",
 }
 
 default_icon = ""
