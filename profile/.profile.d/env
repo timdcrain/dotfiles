@@ -3,6 +3,8 @@ append_path "$HOME/.local/bin"
 
 export EDITOR=vim
 
+alias grep='grep --exclude-dir=.git'
+
 export LS_COLORS='di=34:ex=32'
 alias ls='ls -la --color=auto'
 
