@@ -184,3 +184,9 @@ function! BalanceSplits()
 endfunction
 
 autocmd VimResized * :call BalanceSplits()
+
+function! RemoveTrailingWhitespace() range
+    execute a:firstline . ',' . a:lastline . 's/ *$//'
+endfunction
+
+command! -range RemoveTrailingWhitespace :<line1>,<line2>call RemoveTrailingWhitespace()
