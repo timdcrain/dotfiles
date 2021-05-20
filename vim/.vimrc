@@ -135,6 +135,7 @@ set smartcase
 set spell
 set textwidth=119
 set updatetime=100
+set viminfo+=n~/.cache/vim/viminfo
 
 " Disable arrow keys.
 nnoremap <up> <nop>
