@@ -48,6 +48,7 @@ if [ "${sync}" -eq 1 ]; then
             if [ ! -z "$(git status --porcelain)" ]; then
                 git pull --ff-only
                 makepkg -srci
+                git clean -fdx
             fi
         done
 
@@ -65,5 +66,6 @@ if [ "${sync}" -eq 1 ]; then
 
         cd ${aur_pkg_cache}/${package}
         makepkg -srci
+        git clean -fdx
     done
 fi
