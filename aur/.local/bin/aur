@@ -37,8 +37,8 @@ if [ "${sync}" -eq 1 ]; then
         echo ":: Synchronizing package databases..."
         for package in ${aur_pkg_cache}/*; do
             cd ${package}
-            synced="$(git remote update)"
-            if [ "${synced}" = "Fetching origin" ]; then
+            synced="$(git remote update 2>&1)"
+            if [ -z "$(git rev-list HEAD..@{u})" ]; then
                 echo " ${package##*/} is up to date"
             else
                 echo " ${package##*/}"
@@ -53,7 +53,7 @@ if [ "${sync}" -eq 1 ]; then
         for package in ${aur_pkg_cache}/*; do
             cd ${package}
             # Only install if there are changes in upstream.
-            if [ ! -z "$(git status --porcelain)" ]; then
+            if [ ! -z "$(git rev-list HEAD..@{u})" ]; then
                 changes=1
                 git pull --ff-only
                 makepkg -srci
