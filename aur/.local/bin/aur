@@ -6,14 +6,27 @@ if [ ! -d ${aur_pkg_cache} ]; then
     mkdir -p ${aur_pkg_cache}
 fi
 
-sync=0
+# Operations
+op_files=0
+op_query=0
+op_remove=0
+op_sync=0
+op_deptest=0
+op_upgrade=0
+
+# Options
 search=0
 refresh=0
 upgrade=0
 
-while getopts "Ssyu" option; do
+while getopts "FQRSTUsyu" option; do
     case "${option}" in
-        S) sync=1 ;;
+        F) op_files=1 ;;
+        Q) op_query=1 ;;
+        R) op_remove=1 ;;
+        S) op_sync=1 ;;
+        T) op_deptest=1 ;;
+        U) op_upgrade=1 ;;
         s) search=1 ;;
         y) refresh=1 ;;
         u) upgrade=1 ;;
@@ -23,7 +36,27 @@ done
 shift $((OPTIND - 1))
 packages="$@"
 
-if [ "${sync}" -eq 1 ]; then
+if [ $((op_files + op_query + op_remove + op_sync + op_deptest + op_upgrade)) -gt 1 ]; then
+    echo "error: only one operation may be used at a time" >&2
+    exit 1
+fi
+
+if [ "${op_files}" -eq 1 ]; then
+    echo "error: not implemented" >&2
+    exit 1
+fi
+
+if [ "${op_query}" -eq 1 ]; then
+    echo "error: not implemented" >&2
+    exit 1
+fi
+
+if [ "${op_remove}" -eq 1 ]; then
+    echo "error: not implemented" >&2
+    exit 1
+fi
+
+if [ "${op_sync}" -eq 1 ]; then
     if [ "${search}" -eq 1 ]; then
         if [ "${upgrade}" -eq 1 ]; then
             echo "error: invalid option: '--search' and '--sysupgrade' may not be used together" >&2
@@ -80,4 +113,14 @@ if [ "${sync}" -eq 1 ]; then
         makepkg -srci
         git clean -fdx
     done
+fi
+
+if [ "${op_deptest}" -eq 1 ]; then
+    echo "error: not implemented" >&2
+    exit 1
+fi
+
+if [ "${op_upgrade}" -eq 1 ]; then
+    echo "error: not implemented" >&2
+    exit 1
 fi
