@@ -47,8 +47,24 @@ if [ "${op_files}" -eq 1 ]; then
 fi
 
 if [ "${op_query}" -eq 1 ]; then
-    echo "error: not implemented" >&2
-    exit 1
+    if [ -z "${packages}" ]; then
+        for package in ${aur_pkg_cache}/*; do
+            packages="${packages} ${package##*/}"
+        done
+    fi
+
+    ret=0
+    for package in ${packages}; do
+        if [ ! -d ${aur_pkg_cache}/${package} ]; then
+            echo "error: package '${package}' was not found" >&2
+            ret=1
+        else
+            . ${aur_pkg_cache}/${package}/PKGBUILD
+            echo "${package} ${pkgver}-${pkgrel}"
+        fi
+    done
+
+    exit ${ret}
 fi
 
 if [ "${op_remove}" -eq 1 ]; then
