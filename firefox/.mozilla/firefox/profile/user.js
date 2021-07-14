@@ -62,3 +62,6 @@ user_pref("privacy.userContext.enabled", true);
 
 // Disable remembering usernames/passwords.
 user_pref("signon.rememberSignons", false);
+
+// Firefox 90 requires WebRender to be enabled for it to work on Sway/Wayland.
+user_pref("gfx.webrender.all", true);
