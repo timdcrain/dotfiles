@@ -52,6 +52,9 @@ set shiftwidth=4
 set smarttab
 set expandtab
 
+" Look for tags under .git
+set tags=.git/tags
+
 " Show special characters for whitespace.
 set listchars=tab:—\—,trail:·
 set list
