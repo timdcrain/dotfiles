@@ -21,7 +21,7 @@ set $menu wofi
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * bg /usr/share/backgrounds/hexout.jpg fill
+output * bg /usr/share/backgrounds/mtn.jpg fill
 #
 # Example configuration:
 #
