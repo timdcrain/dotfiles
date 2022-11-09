@@ -1,34 +1,4 @@
-" Required setup for Vundle.
 set nocompatible
-filetype off
-
-" Set the runtime path to include Vundle and initialize.
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'chaoren/vim-wordmotion'
-Plugin 'chriskempson/base16-vim'
-Plugin 'christoomey/vim-tmux-navigator'
-Plugin 'davidhalter/jedi-vim'
-Plugin 'ervandew/supertab'
-Plugin 'jceb/vim-orgmode'
-Plugin 'majutsushi/tagbar'
-Plugin 'mhinz/vim-signify'
-Plugin 'rust-lang/rust.vim'
-Plugin 'tpope/vim-commentary'
-Plugin 'tpope/vim-endwise'
-Plugin 'tpope/vim-fugitive'
-Plugin 'tpope/vim-repeat'
-Plugin 'tpope/vim-sleuth'
-Plugin 'tpope/vim-speeddating'
-Plugin 'tpope/vim-surround'
-Plugin 'udalov/kotlin-vim'
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
-Plugin 'w0rp/ale'
-
-call vundle#end()
 
 " Filetype-specific features.
 syntax on
