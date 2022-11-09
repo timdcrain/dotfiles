@@ -1,9 +1,10 @@
-append_path "$HOME/.cargo/bin"
+append_path "${XDG_DATA_HOME:-$HOME/.local/share}/cargo/bin"
 append_path "$HOME/.local/bin"
 
 export EDITOR=vim
 
 alias grep='grep --exclude=*.pyc --exclude-dir=.git'
+alias wget='wget --hsts-file="${XDG_CACHE_HOME:-$HOME/.cache}/wget-hsts"'
 
 export LS_COLORS='di=34:ex=32'
 alias ls='ls -la --color=auto'
