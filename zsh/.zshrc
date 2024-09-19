@@ -3,7 +3,7 @@ bindkey -v
 zstyle ':completion:*' completer _complete
 zstyle ':completion:*' list-colors "${(@s.:.)LS_COLORS}"
 zstyle ':completion:*' matcher-list '' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}' '+l:|=* r:|=*'
-autload -Uz compinit
+autoload -Uz compinit
 compinit
 
 HISTSIZE=10000000
