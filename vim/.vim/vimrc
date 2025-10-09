@@ -106,9 +106,12 @@ set laststatus=2
 set number
 set smartcase
 set spell
-set textwidth=119
 set updatetime=100
 set viminfo+=n~/.cache/vim/viminfo
+
+" Auto format comments to 80 columns.
+set formatoptions=croq
+set textwidth=80
 
 " Disable arrow keys.
 nnoremap <up> <nop>
