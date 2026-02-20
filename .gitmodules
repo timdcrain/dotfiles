@@ -49,3 +49,6 @@
 [submodule "vim/.config/vim/pack/plugins/start/vim-tmux-navigator"]
 	path = vim/.config/vim/pack/plugins/start/vim-tmux-navigator
 	url = https://github.com/christoomey/vim-tmux-navigator.git
+[submodule "vim/.config/vim/pack/plugins/start/limelight.vim"]
+	path = vim/.config/vim/pack/plugins/start/limelight.vim
+	url = https://github.com/junegunn/limelight.vim.git
