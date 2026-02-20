@@ -1,66 +1,51 @@
-[submodule "base16-vim"]
-	path = base16-vim
+[submodule "vim/.config/vim/pack/plugins/start/ale"]
+	path = vim/.config/vim/pack/plugins/start/ale
+	url = https://github.com/dense-analysis/ale.git
+[submodule "vim/.config/vim/pack/plugins/start/base16-vim"]
+	path = vim/.config/vim/pack/plugins/start/base16-vim
 	url = https://github.com/chriskempson/base16-vim.git
-[submodule ".vim/pack/plugins/start/base16-vim"]
-	path = .vim/pack/plugins/start/base16-vim
-	url = https://github.com/chriskempson/base16-vim.git
-[submodule "vim/.vim/pack/plugins/start/base16-vim"]
-	path = vim/.vim/pack/plugins/start/base16-vim
-	url = https://github.com/chriskempson/base16-vim.git
-[submodule "vim/.vim/pack/plugins/start/vim-tmux-navigator"]
-	path = vim/.vim/pack/plugins/start/vim-tmux-navigator
-	url = https://github.com/christoomey/vim-tmux-navigator.git
-[submodule "vim/.vim/pack/plugins/start/vim-wordmotion"]
-	path = vim/.vim/pack/plugins/start/vim-wordmotion
-	url = https://github.com/chaoren/vim-wordmotion.git
-[submodule "vim/.vim/pack/plugins/start/supertab"]
-	path = vim/.vim/pack/plugins/start/supertab
-	url = https://github.com/ervandew/supertab.git
-[submodule "vim/.vim/pack/plugins/start/vim-orgmode"]
-	path = vim/.vim/pack/plugins/start/vim-orgmode
-	url = https://github.com/jceb/vim-orgmode.git
-[submodule "vim/.vim/pack/plugins/start/tagbar"]
-	path = vim/.vim/pack/plugins/start/tagbar
-	url = https://github.com/majutsushi/tagbar.git
-[submodule "vim/.vim/pack/plugins/start/vim-signify"]
-	path = vim/.vim/pack/plugins/start/vim-signify
-	url = https://github.com/mhinz/vim-signify.git
-[submodule "vim/.vim/pack/plugins/start/rust.vim"]
-	path = vim/.vim/pack/plugins/start/rust.vim
+[submodule "vim/.config/vim/pack/plugins/start/rust.vim"]
+	path = vim/.config/vim/pack/plugins/start/rust.vim
 	url = https://github.com/rust-lang/rust.vim.git
-[submodule "vim/.vim/pack/plugins/start/vim-commentary"]
-	path = vim/.vim/pack/plugins/start/vim-commentary
-	url = https://github.com/tpope/vim-commentary.git
-[submodule "vim/.vim/pack/plugins/start/vim-endwise"]
-	path = vim/.vim/pack/plugins/start/vim-endwise
-	url = https://github.com/tpope/vim-endwise.git
-[submodule "vim/.vim/pack/plugins/start/vim-fugitive"]
-	path = vim/.vim/pack/plugins/start/vim-fugitive
-	url = https://github.com/tpope/vim-fugitive.git
-[submodule "vim/.vim/pack/plugins/start/vim-repeat"]
-	path = vim/.vim/pack/plugins/start/vim-repeat
-	url = https://github.com/tpope/vim-repeat.git
-[submodule "vim/.vim/pack/plugins/start/vim-sleuth"]
-	path = vim/.vim/pack/plugins/start/vim-sleuth
-	url = https://github.com/tpope/vim-sleuth.git
-[submodule "vim/.vim/pack/plugins/start/vim-speeddating"]
-	path = vim/.vim/pack/plugins/start/vim-speeddating
-	url = https://github.com/tpope/vim-speeddating.git
-[submodule "vim/.vim/pack/plugins/start/vim-surround"]
-	path = vim/.vim/pack/plugins/start/vim-surround
-	url = https://github.com/tpope/vim-surround.git
-[submodule "vim/.vim/pack/plugins/start/vim-airline"]
-	path = vim/.vim/pack/plugins/start/vim-airline
+[submodule "vim/.config/vim/pack/plugins/start/supertab"]
+	path = vim/.config/vim/pack/plugins/start/supertab
+	url = https://github.com/ervandew/supertab.git
+[submodule "vim/.config/vim/pack/plugins/start/vim-airline"]
+	path = vim/.config/vim/pack/plugins/start/vim-airline
 	url = https://github.com/vim-airline/vim-airline.git
-[submodule "vim/.vim/pack/plugins/start/vim-airline-themes"]
-	path = vim/.vim/pack/plugins/start/vim-airline-themes
+[submodule "vim/.config/vim/pack/plugins/start/vim-airline-themes"]
+	path = vim/.config/vim/pack/plugins/start/vim-airline-themes
 	url = https://github.com/vim-airline/vim-airline-themes.git
-[submodule "vim/.vim/pack/plugins/start/ale"]
-	path = vim/.vim/pack/plugins/start/ale
-	url = https://github.com/w0rp/ale.git
-[submodule "vim/.vim/pack/plugins/start/jedi-vim"]
-	path = vim/.vim/pack/plugins/start/jedi-vim
-	url = https://github.com/davidhalter/jedi-vim.git
-[submodule "vim/.vim/pack/plugins/start/kotlin-vim"]
-	path = vim/.vim/pack/plugins/start/kotlin-vim
-	url = https://github.com/udalov/kotlin-vim.git
+[submodule "vim/.config/vim/pack/plugins/start/vim-commentary"]
+	path = vim/.config/vim/pack/plugins/start/vim-commentary
+	url = https://github.com/tpope/vim-commentary.git
+[submodule "vim/.config/vim/pack/plugins/start/vim-endwise"]
+	path = vim/.config/vim/pack/plugins/start/vim-endwise
+	url = https://github.com/tpope/vim-endwise.git
+[submodule "vim/.config/vim/pack/plugins/start/vim-fugitive"]
+	path = vim/.config/vim/pack/plugins/start/vim-fugitive
+	url = https://github.com/tpope/vim-fugitive.git
+[submodule "vim/.config/vim/pack/plugins/start/vim-orgmode"]
+	path = vim/.config/vim/pack/plugins/start/vim-orgmode
+	url = https://github.com/jceb/vim-orgmode.git
+[submodule "vim/.config/vim/pack/plugins/start/vim-repeat"]
+	path = vim/.config/vim/pack/plugins/start/vim-repeat
+	url = https://github.com/tpope/vim-repeat.git
+[submodule "vim/.config/vim/pack/plugins/start/vim-sleuth"]
+	path = vim/.config/vim/pack/plugins/start/vim-sleuth
+	url = https://github.com/tpope/vim-sleuth.git
+[submodule "vim/.config/vim/pack/plugins/start/vim-signify"]
+	path = vim/.config/vim/pack/plugins/start/vim-signify
+	url = https://github.com/mhinz/vim-signify.git
+[submodule "vim/.config/vim/pack/plugins/start/vim-speeddating"]
+	path = vim/.config/vim/pack/plugins/start/vim-speeddating
+	url = https://github.com/tpope/vim-speeddating.git
+[submodule "vim/.config/vim/pack/plugins/start/vim-surround"]
+	path = vim/.config/vim/pack/plugins/start/vim-surround
+	url = https://github.com/tpope/vim-surround.git
+[submodule "vim/.config/vim/pack/plugins/start/vim-wordmotion"]
+	path = vim/.config/vim/pack/plugins/start/vim-wordmotion
+	url = https://github.com/chaoren/vim-wordmotion.git
+[submodule "vim/.config/vim/pack/plugins/start/vim-tmux-navigator"]
+	path = vim/.config/vim/pack/plugins/start/vim-tmux-navigator
+	url = https://github.com/christoomey/vim-tmux-navigator.git

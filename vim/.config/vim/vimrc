@@ -96,16 +96,19 @@ let g:SuperTabDefaultCompletionType = "<C-N>"
 nnoremap <F8> :TagbarToggle<CR>
 
 " General settings.
+set autoindent
 set backspace=start,eol,indent
 set directory=~/.cache/vim/swap,/var/tmp,/tmp
 set encoding=utf-8
 set formatoptions+=j
 set ignorecase
 set nofoldenable
+set nojoinspaces
 set laststatus=2
 set number
 set smartcase
 set spell
+set spellcapcheck=
 set updatetime=100
 set viminfo+=n~/.cache/vim/viminfo
 
