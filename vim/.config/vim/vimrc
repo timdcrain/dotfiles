@@ -22,8 +22,8 @@ set shiftwidth=4
 set smarttab
 set expandtab
 
-" Look for tags under .git
-set tags=.git/tags
+" Look for tags under .git or up from the current path.
+set tags=.git/tags,tags;
 
 " Show special characters for whitespace.
 set listchars=tab:—\—,trail:·
@@ -41,7 +41,6 @@ let g:airline_right_sep = ''
 let g:airline_symbols.branch = '⎇ '
 let g:airline_symbols.linenr = '☰ '
 let g:airline_symbols.maxlinenr = ''
-let g:airline#extensions#ale#enabled = 1
 
 " ALE settings.
 let g:ale_sign_info = 'ℹ'
@@ -85,10 +84,6 @@ endfunction
 nnoremap <silent> [c :call SignifyHunkPrev(1)<cr>
 nnoremap <silent> ]c :call SignifyHunkNext(1)<cr>
 
-" Jedi settings.
-autocmd FileType python setlocal completeopt-=preview
-let g:jedi#show_call_signatures = 0
-
 " Supertab settings.
 let g:SuperTabDefaultCompletionType = "<C-N>"
 
@@ -100,7 +95,6 @@ set autoindent
 set backspace=start,eol,indent
 set directory=~/.cache/vim/swap,/var/tmp,/tmp
 set encoding=utf-8
-set formatoptions+=j
 set ignorecase
 set nofoldenable
 set nojoinspaces
@@ -113,7 +107,7 @@ set updatetime=100
 set viminfo+=n~/.cache/vim/viminfo
 
 " Auto format comments to 80 columns.
-set formatoptions=croq
+set formatoptions=croqj/l
 set textwidth=80
 
 " Disable arrow keys.
