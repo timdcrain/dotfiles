@@ -4,13 +4,13 @@ Limelight
 
 let b:autoformat = 1
 
-function! CountPattern(pattern)
+function! IsOdd(pattern)
     let l:result = searchcount(#{pattern: '^' . a:pattern . '$', pos: [line('.') - 1, 1, 0]})
-    return l:result.current
+    return l:result.current % 2 == 1
 endfunction
 
 function! InsertEnterToggleAutoformat()
-    if CountPattern('+++') % 2 == 1 || CountPattern('```') % 2 == 1
+    if IsOdd('+++') || IsOdd('```') || IsOdd('---')
         if b:autoformat
             let b:autoformat = 0
             setlocal formatoptions-=a
