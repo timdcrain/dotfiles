@@ -15,7 +15,7 @@ append_path () {
 }
 
 # Prepend "$1" to $PATH when not already in.
-append_path () {
+prepend_path () {
     case ":$PATH:" in
         *:"$1":*)
             ;;
