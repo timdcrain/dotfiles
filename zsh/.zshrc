@@ -1,4 +1,5 @@
 bindkey -v
+bindkey '^R' history-incremental-search-backward
 
 zstyle ':completion:*' completer _complete
 zstyle ':completion:*' list-colors "${(@s.:.)LS_COLORS}"
