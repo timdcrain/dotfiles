@@ -2,14 +2,25 @@
 #
 # This was adapted from /etc/profile for use in a user's home directory.
 
+# These functions are accessible to scripts in ~/.profile.d
+
 # Append "$1" to $PATH when not already in.
-# This function API is accessible to scripts in ~/.profile.d
 append_path () {
     case ":$PATH:" in
         *:"$1":*)
             ;;
         *)
             PATH="${PATH:+$PATH:}$1"
+    esac
+}
+
+# Prepend "$1" to $PATH when not already in.
+append_path () {
+    case ":$PATH:" in
+        *:"$1":*)
+            ;;
+        *)
+            PATH="$1${PATH:+:$PATH}"
     esac
 }
 
@@ -26,3 +37,4 @@ fi
 
 # Unload our profile API functions
 unset -f append_path
+unset -f prepend_path
