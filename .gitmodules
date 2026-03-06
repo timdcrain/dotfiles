@@ -55,3 +55,6 @@
 [submodule "vim/.config/vim/pack/plugins/start/tagbar"]
 	path = vim/.config/vim/pack/plugins/start/tagbar
 	url = https://github.com/preservim/tagbar.git
+[submodule "vim/.config/vim/pack/plugins/start/vim-markdown"]
+	path = vim/.config/vim/pack/plugins/start/vim-markdown
+	url = https://github.com/preservim/vim-markdown.git
