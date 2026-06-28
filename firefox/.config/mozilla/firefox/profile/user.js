@@ -26,6 +26,7 @@ user_pref("browser.quitShortcut.disabled", true);
 
 // Disable Pocket.
 user_pref("extensions.pocket.enabled", false);
+user_pref("browser.newtabpage.activity-stream.discoverystream.personalization.enabled", false);
 
 // Enable Site Isolation.
 user_pref("fission.autostart", true);
