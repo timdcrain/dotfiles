@@ -11,6 +11,10 @@ user_pref("beacon.enabled", false);
 // Disable auto filling forms.
 user_pref("browser.formfill.enable", false);
 
+// Disable swip left/right to navigate.
+user_pref("browser.gesture.swipe.left", "");
+user_pref("browser.gesture.swipe.right", "");
+
 // Set default search engine region.
 user_pref("browser.search.countryCode", "US");
 user_pref("browser.search.region", "US");
