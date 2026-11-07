@@ -5,7 +5,7 @@ readonly CONNECTION_TIMEOUT=180
 readonly PRUNE_BACKUPS=1
 
 # Borg constants.
-readonly BORG_EXCLUDE=~/.config/borg/exclude
+readonly BORG_EXCLUDE="${XDG_CONFIG_HOME:-$HOME/.config}/borg/exclude"
 readonly BORG_ARCHIVE_PREFIX="{hostname}-"
 readonly BORG_ARCHIVE="${BORG_ARCHIVE_PREFIX}{now:%Y-%m-%d}"
 readonly BORG_COMPRESSION="lz4"
