@@ -200,9 +200,9 @@ bindsym $mod+r mode "resize"
 bindsym $mod+shift+minus exec wtype —
 
 # Media keys
-bindsym XF86AudioRaiseVolume exec ~/.local/bin/volume +2%
-bindsym XF86AudioLowerVolume exec ~/.local/bin/volume -2%
-bindsym XF86AudioMute exec pactl set-sink-mute 0 toggle
+bindsym XF86AudioRaiseVolume exec ~/.local/bin/volume 2%+
+bindsym XF86AudioLowerVolume exec ~/.local/bin/volume 2%-
+bindsym XF86AudioMute exec wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
 bindsym XF86AudioPlay exec playerctl play-pause
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
