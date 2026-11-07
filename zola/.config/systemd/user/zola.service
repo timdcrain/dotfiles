@@ -1,0 +1,11 @@
+[Unit]
+Description=Zola local server
+
+[Service]
+Type=simple
+ExecStart=zola serve -i 0.0.0.0 --drafts
+WorkingDirectory=%h/repos/timcrain.com
+Restart=on-failure
+
+[Install]
+WantedBy=default.target
