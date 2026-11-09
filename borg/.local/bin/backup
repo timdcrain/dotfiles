@@ -1,14 +1,15 @@
 #!/bin/bash
 
+set -euo pipefail
+
 # Script constants.
 readonly CONNECTION_TIMEOUT=180
-readonly PRUNE_BACKUPS=1
 
 # Borg constants.
 readonly BORG_EXCLUDE="${XDG_CONFIG_HOME:-$HOME/.config}/borg/exclude"
 readonly BORG_ARCHIVE_PREFIX="{hostname}-"
-readonly BORG_ARCHIVE="${BORG_ARCHIVE_PREFIX}{now:%Y-%m-%d}"
-readonly BORG_COMPRESSION="lz4"
+readonly BORG_ARCHIVE="${BORG_ARCHIVE_PREFIX}{now:%Y-%m-%d-%H-%M}"
+readonly BORG_COMPRESSION="zstd,3"
 
 # Environment variables that borg uses.
 export BORG_REMOTE_PATH="borg1"
@@ -33,20 +34,20 @@ check_connectivity() {
 # Backup all of home except a few excluded directories.
 create_backup() {
     borg create -v --stats \
+        --exclude-caches \
         --compression "${BORG_COMPRESSION}" \
         --exclude-from "${BORG_EXCLUDE}" \
         "::${BORG_ARCHIVE}" \
         ~
-
-    return "$?"
 }
 
 prune_backups() {
     borg prune -v --list \
-        --prefix "${BORG_ARCHIVE_PREFIX}" \
-        --keep-daily=180 --keep-weekly=52 --keep-monthly=48
+        --glob-archives "${BORG_ARCHIVE_PREFIX}*" \
+        --keep-daily=180 --keep-weekly=52 \
+        --keep-monthly=48 --keep-yearly=10
 
-    return "$?"
+    borg compact
 }
 
 prompt_repo() {
@@ -82,12 +83,11 @@ main() {
     # is starting on boot.
     check_connectivity "${CONNECTION_TIMEOUT}" "$(parse_server)"
 
-    if [[ "${PRUNE_BACKUPS}" -ne 1 ]]; then
-        prune_backups || exit "$?"
+    if [[ "${PRUNE_BACKUPS}" -eq 1 ]]; then
+        prune_backups
     fi
 
     create_backup
-    exit "$?"
 }
 
 main "$@"
