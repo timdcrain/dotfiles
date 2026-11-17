@@ -42,9 +42,9 @@
     "interface": "wlp58s0",
     "format": "{icon}",
     "format-icons": {
-        "wifi": [""],
-        "ethernet": [""],
-        "disconnected": [""]
+      "wifi": [""],
+      "ethernet": [""],
+      "disconnected": [""]
     },
     "tooltip-format-wifi": "{essid} {signalStrength}%",
     "tooltip": true,
@@ -60,6 +60,14 @@
 
   "sway/workspaces": {
     "disable-scroll": true,
-    "format": "{name}"
+    "format": "{windows}",
+    "window-rewrite": {
+      "class<firefox>": "",
+      "class<foot>": "",
+      "class<nm-connection-editor>": "",
+      "class<org.keepassxc.KeePassXC>": "",
+      "class<org.pwmt.zathura>": "",
+      "class<vlc>": ""
+    }
   }
 }

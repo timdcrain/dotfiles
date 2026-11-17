@@ -11,6 +11,9 @@
 
 #workspaces button {
     color: #e0e0e0;
+    margin: 2px 2px;
+    padding: 0 5px;
+    border: 1px solid;
 }
 
 #workspaces button.focused {
