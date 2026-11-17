@@ -52,9 +52,16 @@
   },
 
   "pulseaudio": {
-    "format": " ",
-    "format-muted": "",
-    "on-click": "pavucontrol",
+    "states": {
+      "zero": 0
+    },
+    "format": "{icon}",
+    "format-icons": {
+      "default": ["", "", " ", " "]
+    },
+    "format-zero": "",
+    "format-muted": "",
+    "on-click": "swayosd-client --output-volume mute-toggle",
     "tooltip": false
   },
 
