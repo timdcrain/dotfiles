@@ -79,7 +79,7 @@
       "class<nm-connection-editor>": "",
       "class<org.keepassxc.KeePassXC>": "",
       "class<org.pwmt.zathura>": "",
-      "class<vlc>": ""
+      "class<mpv>": ""
     }
   }
 }
