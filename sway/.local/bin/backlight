@@ -1,5 +1,0 @@
-#!/bin/sh
-
-brightnessctl --quiet s "$1"
-value="$(brightnessctl -m | cut -d, -f4)"
-~/.local/bin/notify "${value%?}"

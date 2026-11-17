@@ -1,5 +1,0 @@
-#!/bin/sh
-
-wpctl set-volume --limit 1.5 @DEFAULT_AUDIO_SINK@ "$1"
-volume="$(wpctl get-volume @DEFAULT_AUDIO_SINK@ | awk '/Volume: /{ print $2 * 100 }')"
-~/.local/bin/notify "${volume}"

@@ -200,14 +200,15 @@ bindsym $mod+r mode "resize"
 bindsym $mod+shift+minus exec wtype "—"
 
 # Media keys
-bindsym XF86AudioRaiseVolume exec ~/.local/bin/volume 2%+
-bindsym XF86AudioLowerVolume exec ~/.local/bin/volume 2%-
-bindsym XF86AudioMute exec wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
-bindsym XF86AudioPlay exec playerctl play-pause
-bindsym XF86AudioNext exec playerctl next
-bindsym XF86AudioPrev exec playerctl previous
-bindsym XF86MonBrightnessUp exec ~/.local/bin/backlight 5%+
-bindsym XF86MonBrightnessDown exec ~/.local/bin/backlight 5%-
+set $unmute wpctl set-mute @DEFAULT_AUDIO_SINK@ 0
+bindsym XF86AudioMute exec swayosd-client --output-volume mute-toggle
+bindsym XF86AudioRaiseVolume exec $unmute && swayosd-client --output-volume raise
+bindsym XF86AudioLowerVolume exec $unmute && swayosd-client --output-volume lower
+bindsym XF86MonBrightnessUp exec swayosd-client --brightness raise
+bindsym XF86MonBrightnessDown exec swayosd-client --brightness lower
+bindsym XF86AudioPlay exec swayosd --playerctl play-pause
+bindsym XF86AudioNext exec swayosd --playerctl next
+bindsym XF86AudioPrev exec swayosd --playerctl prev
 
 # Default windows to no border
 default_border none
@@ -219,6 +220,7 @@ xwayland disable
 for_window [shell="^.*"] inhibit_idle fullscreen
 
 exec waybar
+exec swayosd-server
 exec dropbox
 
 include /etc/sway/config.d/*
