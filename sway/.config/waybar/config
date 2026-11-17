@@ -48,7 +48,7 @@
     },
     "tooltip-format-wifi": "{essid} {signalStrength}%",
     "tooltip": true,
-    "on-click": "~/.local/bin/wifi-menu"
+    "on-click": "networkmanager_dmenu"
   },
 
   "pulseaudio": {
