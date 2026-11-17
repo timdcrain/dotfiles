@@ -10,14 +10,23 @@
 }
 
 #workspaces button {
-    color: #e0e0e0;
     margin: 2px 2px;
     padding: 0 5px;
+}
+
+#workspaces button:not(.empty) {
+    color: #e0e0e0;
     border: 1px solid;
+}
+
+#workspaces button:hover {
+    box-shadow: none;
+    text-shadow: none;
 }
 
 #workspaces button.focused {
     color: #4fc0e8;
+    border: 1px solid;
 }
 
 #workspaces button.urgent {
