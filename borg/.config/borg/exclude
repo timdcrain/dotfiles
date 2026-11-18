@@ -12,7 +12,9 @@
 /home/*/.java
 /home/*/.opam
 /home/*/.rustup
+/home/*/.local/share
 /home/*/.vim
+/home/*/.config/vim/pack
 /home/*/downloads
 
 # Filetypes to exclude.
