@@ -81,7 +81,7 @@
     "format": "{windows}",
     "window-rewrite": {
       "class<firefox>": "",
-      "class<foot>": "",
+      "class<foot>": " ",
       "class<nm-connection-editor>": "",
       "class<org.keepassxc.KeePassXC>": "",
       "class<org.pwmt.zathura>": "",
