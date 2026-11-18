@@ -6,3 +6,5 @@
 	defaultBranch = main
 [alias]
 	ctags = !.git/hooks/ctags
+[include]
+	path = ~/.config/git/config.local
