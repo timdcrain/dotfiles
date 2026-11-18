@@ -206,9 +206,9 @@ bindsym XF86AudioRaiseVolume exec $unmute && swayosd-client --output-volume rais
 bindsym XF86AudioLowerVolume exec $unmute && swayosd-client --output-volume lower
 bindsym XF86MonBrightnessUp exec swayosd-client --brightness raise
 bindsym XF86MonBrightnessDown exec swayosd-client --brightness lower
-bindsym XF86AudioPlay exec swayosd --playerctl play-pause
-bindsym XF86AudioNext exec swayosd --playerctl next
-bindsym XF86AudioPrev exec swayosd --playerctl prev
+bindsym XF86AudioPlay exec swayosd-client --playerctl play-pause
+bindsym XF86AudioNext exec swayosd-client --playerctl next
+bindsym XF86AudioPrev exec swayosd-client --playerctl prev
 
 # Default windows to no border
 default_border none
