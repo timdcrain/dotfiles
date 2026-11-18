@@ -16,7 +16,6 @@ user_pref("browser.gesture.swipe.left", "");
 user_pref("browser.gesture.swipe.right", "");
 
 // Set default search engine region.
-user_pref("browser.search.countryCode", "US");
 user_pref("browser.search.region", "US");
 
 // Disable sending pings.
@@ -28,12 +27,11 @@ user_pref("browser.urlbar.trimURLs", false);
 // Disable Ctrl-q shortcut to close Firefox.
 user_pref("browser.quitShortcut.disabled", true);
 
-// Disable Pocket.
-user_pref("extensions.pocket.enabled", false);
+// Disable new tab personalization.
 user_pref("browser.newtabpage.activity-stream.discoverystream.personalization.enabled", false);
 
-// Enable Site Isolation.
-user_pref("fission.autostart", true);
+// Enable strict enhanced tracking protection.
+user_pref("browser.contentblocking.category", "strict");
 
 // Disable DNS prefetch.
 user_pref("network.dns.disablePrefetch", true);
@@ -45,15 +43,6 @@ user_pref("network.cookie.thirdparty.nonsecureSessionOnly", true);
 
 // Disable link prefetch.
 user_pref("network.prefetch-next", false);
-
-// Disable flash.
-user_pref("plugin.state.flash", 0);
-
-// Enable Do-Not-Track headers.
-user_pref("privacy.donottrackheader.enabled", true);
-
-// Enable first-party isolation.
-user_pref("privacy.firstparty.isolate", true);
 
 // Enable Firefox Tracking Protection.
 // https://support.mozilla.org/en-US/kb/enhanced-tracking-protection-firefox-desktop
@@ -67,6 +56,3 @@ user_pref("privacy.userContext.enabled", true);
 
 // Disable remembering usernames/passwords.
 user_pref("signon.rememberSignons", false);
-
-// Firefox 90 requires WebRender to be enabled for it to work on Sway/Wayland.
-user_pref("gfx.webrender.all", true);
