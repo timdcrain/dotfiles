@@ -4,6 +4,7 @@ set -euo pipefail
 
 # Script constants.
 readonly CONNECTION_TIMEOUT=180
+readonly PRUNE_BACKUPS="${PRUNE_BACKUPS:-0}"
 
 # Borg constants.
 readonly BORG_EXCLUDE="${XDG_CONFIG_HOME:-$HOME/.config}/borg/exclude"
@@ -51,8 +52,8 @@ prune_backups() {
 }
 
 prompt_repo() {
-    if [[ -z "${BORG_REPO}" ]]; then
-        read -p "Enter repo: " repo
+    if [[ -z "${BORG_REPO:-}" ]]; then
+        read -r -p "Enter repo: " repo
         export BORG_REPO="${repo}"
         echo
     fi
@@ -60,8 +61,8 @@ prompt_repo() {
 
 prompt_passphrase() {
     # Set passphrase environment variable so we don't have to enter it twice.
-    if [[ -z "${BORG_PASSPHRASE}" ]]; then
-        read -s -p "Enter passphrase for key ${BORG_REPO}: " password
+    if [[ -z "${BORG_PASSPHRASE:-}" ]]; then
+        read -r -s -p "Enter passphrase for key ${BORG_REPO}: " password
         export BORG_PASSPHRASE="${password}"
         echo
     fi
