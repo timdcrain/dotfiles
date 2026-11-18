@@ -1,8 +1,8 @@
 [Unit]
-Description=Run borg backup
+Description=borg backup
 
 [Service]
-Type=simple
+Type=oneshot
 Nice=19
 IOSchedulingClass=2
 IOSchedulingPriority=7
