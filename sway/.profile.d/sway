@@ -4,6 +4,6 @@ export QT_QPA_PLATFORM=wayland
 export DISPLAY_MANAGER=/usr/bin/sway
 
 # Launch the display manager if this is tty1
-if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then
+if [ -z "$DISPLAY" ] [ -z "$WAYLAND_DISPLAY" ] && [ "$(tty)" = /dev/tty1 ]; then
     XKB_DEFAULT_LAYOUT=us exec $DISPLAY_MANAGER
 fi
