@@ -113,17 +113,24 @@ endif
 " General settings.
 set autoindent
 set backspace=start,eol,indent
-set directory=~/.cache/vim/swap,/var/tmp,/tmp
 set encoding=utf-8
+set hidden
 set ignorecase
+set laststatus=2
 set nofoldenable
 set nojoinspaces
-set laststatus=2
 set number
+set scrolloff=5
 set smartcase
 set spell
 set spellcapcheck=
 set updatetime=100
+
+if !isdirectory(expand('~/.cache/vim/swap'))
+    call mkdir(expand('~/.cache/vim/swap'), 'p', 0700)
+endif
+
+set directory=~/.cache/vim/swap//,/var/tmp//,/tmp//
 set viminfo+=n~/.cache/vim/viminfo
 
 " Auto format comments to 80 columns.
@@ -176,10 +183,13 @@ function! BalanceSplits()
     endif
 endfunction
 
-autocmd VimResized * :call BalanceSplits()
+augroup BalanceSplitsGroup
+    autocmd!
+    autocmd VimResized * :call BalanceSplits()
+augroup END
 
 function! RemoveTrailingWhitespace() range
-    execute a:firstline . ',' . a:lastline . 's/ *$//'
+    execute a:firstline . ',' . a:lastline . 's/\s\+$//e'
 endfunction
 
 command! -range RemoveTrailingWhitespace :<line1>,<line2>call RemoveTrailingWhitespace()
