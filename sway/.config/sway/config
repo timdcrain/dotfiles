@@ -221,6 +221,7 @@ for_window [shell="^.*"] inhibit_idle fullscreen
 
 exec waybar
 exec swayosd-server
+exec swaync
 exec dropbox
 
 include /etc/sway/config.d/*
